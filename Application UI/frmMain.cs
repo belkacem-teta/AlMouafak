@@ -1,4 +1,5 @@
-﻿using Application_UI.students;
+﻿using Application_UI.fees;
+using Application_UI.students;
 using Core_Logic;
 using System;
 using System.Collections.Generic;
@@ -44,10 +45,10 @@ namespace Application_UI
 
         private void ManageFeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //new frmManageFees()
-            //{
-            //    MdiParent = this
-            //}.Show();
+            new frmManageFees()
+            {
+                MdiParent = this
+            }.Show();
         }
     }
 }

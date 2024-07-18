@@ -54,7 +54,7 @@ namespace Data_Access
                 if (i != attr.Length -1)
                     sb.Append(", ");
             }
-            sb.Append(" WHERE ID = @ID AND IsDeleted = 0");
+            sb.Append(" WHERE ID = @ID;");
             return sb.ToString();
         }
         public int Insert(Model model)

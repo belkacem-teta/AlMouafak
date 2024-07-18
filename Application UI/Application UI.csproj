@@ -63,6 +63,18 @@
     <Compile Include="controls\ctrlStudentCard.Designer.cs">
       <DependentUpon>ctrlStudentCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="fees\frmAddEditFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fees\frmAddEditFees.Designer.cs">
+      <DependentUpon>frmAddEditFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fees\frmManageFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fees\frmManageFees.Designer.cs">
+      <DependentUpon>frmManageFees.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="controls\ctrlStudentCard.resx">
       <DependentUpon>ctrlStudentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fees\frmAddEditFees.resx">
+      <DependentUpon>frmAddEditFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fees\frmManageFees.resx">
+      <DependentUpon>frmManageFees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

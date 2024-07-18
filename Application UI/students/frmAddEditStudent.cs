@@ -29,7 +29,7 @@ namespace Application_UI.students
         
         private void ResetForm()
         {
-            cbGrade.Items.AddRange(Grade.NAMES);
+            cbGrade.Items.AddRange(Grades.NAMES);
             dtBrithDate.MinDate = DateTime.Now.AddYears(-15);
             dtBrithDate.MaxDate = DateTime.Now.AddYears(-3);
             dtEntryDate.MinDate = DateTime.Now.AddMonths(-9);

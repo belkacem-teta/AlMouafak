@@ -28,7 +28,7 @@ namespace Data_Access
     }
     public static class Students
     {
-        internal static BaseTable<StudentModel> table = new BaseTable<StudentModel>("Students",
+        private static BaseTable<StudentModel> table = new BaseTable<StudentModel>("Students",
             new string[]{
             "ID",
             "RegNumber",

@@ -82,7 +82,7 @@ namespace Application_UI.students
                     cbSearch.Visible = true;
                     cbSearch.Items.Clear();
                     cbSearch.Items.Add("الكل");
-                    cbSearch.Items.AddRange(Grade.NAMES);
+                    cbSearch.Items.AddRange(Grades.NAMES);
                     break;
             }
         }

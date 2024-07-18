@@ -36,7 +36,7 @@ namespace Core_Logic
                 if (value >= 0 && value < 6)
                 {
                     _Grade = value;
-                    GradeString = Core_Logic.Grade.NAMES[value];
+                    GradeString = Core_Logic.Grades.NAMES[value];
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace Core_Logic
             IsTransported = false;
             TuitionCoupon = 0.00M;
         }
-        private void ModelToStudent(StudentModel model)
+        private void _ModelToStudent(StudentModel model)
         {
             ID = model.ID;
             RegNumber = model.RegNumber;
@@ -76,7 +76,7 @@ namespace Core_Logic
             TuitionCoupon = model.TuitionCoupon;
             IsDeleted = model.IsDeleted;
         }
-        private StudentModel StudentToModel()
+        private StudentModel _StudentToModel()
         {
             StudentModel model = new StudentModel();
             model.ID = ID;
@@ -97,7 +97,7 @@ namespace Core_Logic
         }
         private bool _Insert()
         {
-            StudentModel model = StudentToModel();
+            StudentModel model = _StudentToModel();
             int result = Students.Insert(model);
             if (result != 0)
                 this.ID = model.ID;
@@ -105,7 +105,7 @@ namespace Core_Logic
         }
         private bool _Update()
         {
-            StudentModel model = StudentToModel();
+            StudentModel model = _StudentToModel();
             int result = Students.Update(model);
             return result == 0;
         }
@@ -123,7 +123,7 @@ namespace Core_Logic
                 return null;
 
             Student student = new Student();
-            student.ModelToStudent(model);
+            student._ModelToStudent(model);
             return student;
         }
         public static Student Get(string firstName, string lastName)
@@ -133,7 +133,7 @@ namespace Core_Logic
                 return null;
 
             Student student = new Student();
-            student.ModelToStudent(model);
+            student._ModelToStudent(model);
             return student;
         }
         public static DataTable Get()
