@@ -1,4 +1,5 @@
-﻿using Core_Logic;
+﻿using Application_UI.invoices;
+using Core_Logic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -190,8 +191,8 @@ namespace Application_UI.students
 
         private void addInvoice_Click(object sender, EventArgs e)
         {
-            //Student student = Student.Get(Convert.ToInt32(dgvList.CurrentRow.Cells[0].Value));
-            //new frmAddInvoice(student).Show();
+            Student student = Student.Get(Convert.ToInt32(dgvList.CurrentRow.Cells[0].Value));
+            new frmAddInvoice(student).Show();
         }
     }
 }

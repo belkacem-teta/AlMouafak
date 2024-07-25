@@ -106,6 +106,40 @@ namespace Core_Logic
             fee._ModelToFee(model);
             return fee;
         }
+        public static Fee Get(MainFees fee)
+        {
+            return Get((int)fee);
+        }
+        public static Fee GetTuition(int grade)
+        {
+            switch (grade)
+            {
+                case 0:
+                    return Get(MainFees.TUITION_PREP_GRADE);
+                case 1:
+                    return Get(MainFees.TUITION_FIRST_GRADE);
+                case 2:
+                    return Get(MainFees.TUITION_SECOND_GRADE);
+                case 3:
+                    return Get(MainFees.TUITION_THIRD_GRADE);
+                case 4:
+                    return Get(MainFees.TUITION_FOURTH_GRADE);
+                case 5:
+                    return Get(MainFees.TUITION_FIFTH_GRADE);
+                default:
+                    return null;
+            }
+        }
+        public static List<Fee> GetOthers()
+        {
+            List<Fee> result = new List<Fee>();
+            List<int> IDs = Fees.GetOthersIds();
+            foreach (int id in IDs)
+            {
+                result.Add(Get(id));
+            }
+            return result;
+        }
         public static DataTable Get()
         {
             return Fees.Get();

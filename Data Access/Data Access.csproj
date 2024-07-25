@@ -53,6 +53,8 @@
     <Compile Include="BaseTable.cs" />
     <Compile Include="Fees.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="Invoices.cs" />
+    <Compile Include="Payments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Students.cs" />
   </ItemGroup>

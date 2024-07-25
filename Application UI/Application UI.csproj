@@ -82,6 +82,24 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
+    <Compile Include="invoices\frmAddInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="invoices\frmAddInvoice.Designer.cs">
+      <DependentUpon>frmAddInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="invoices\frmShowInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="invoices\frmShowInvoice.Designer.cs">
+      <DependentUpon>frmShowInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="payments\frmAddPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="payments\frmAddPayment.Designer.cs">
+      <DependentUpon>frmAddPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="students\frmAddEditStudent.cs">
@@ -116,6 +134,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="invoices\frmAddInvoice.resx">
+      <DependentUpon>frmAddInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="invoices\frmShowInvoice.resx">
+      <DependentUpon>frmShowInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="payments\frmAddPayment.resx">
+      <DependentUpon>frmAddPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,4 +1,5 @@
 ﻿using Application_UI.fees;
+using Application_UI.invoices;
 using Application_UI.students;
 using Core_Logic;
 using System;
@@ -18,7 +19,6 @@ namespace Application_UI
         public frmMain()
         {
             InitializeComponent();
-
         }
 
         private void ManageStudentsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,9 +38,10 @@ namespace Application_UI
 
         private void AddInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmAddInvoice form = new frmAddInvoice();
-            //form.MdiParent = this;
-            //form.Show();
+            new frmAddInvoice()
+            {
+                MdiParent = this
+            }.Show();
         }
 
         private void ManageFeesToolStripMenuItem_Click(object sender, EventArgs e)

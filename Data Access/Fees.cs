@@ -62,5 +62,15 @@ namespace Data_Access
                 return dt;
             }
         }
+
+        public static List<int> GetOthersIds()
+        {
+            using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
+            {
+                string query = $"SELECT ID FROM Fees WHERE PaymentTypeID = 5;";
+                return connection.Query<int>(query).AsList();
+            }
+        }
+
     }
 }

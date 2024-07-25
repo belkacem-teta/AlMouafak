@@ -116,6 +116,12 @@ namespace Core_Logic
             else
                 return _Update();
         }
+        
+        public List<int> GetPaidMonths(PaymentTypes type)
+        {
+            return Payments.GetPaidMonths(this.ID, (int)type);
+        }
+
         public static Student Get(int id)
         {
             StudentModel model = Students.Get(id);

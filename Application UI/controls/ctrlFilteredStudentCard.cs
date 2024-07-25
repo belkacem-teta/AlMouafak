@@ -27,7 +27,7 @@ namespace Application_UI.controls
         }
         public bool Locked
         {
-            get { return grpSearch.Enabled; }
+            get { return !grpSearch.Enabled; }
             set
             {
                 if (value && !IsStudentSet)
