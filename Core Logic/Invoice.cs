@@ -1,6 +1,7 @@
 ﻿using Data_Access;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,11 +67,11 @@ namespace Core_Logic
         private Invoice()
         {
             ID = -1;
-            this.Payments = new List<Payment>();
             TotalAmount = 0;
         }
         public Invoice(Student student) : this()
         {
+            this.Payments = new List<Payment>();
             this.student = student;
         }
         private void _ModelToInvoice(InvoiceModel model)
@@ -206,6 +207,25 @@ namespace Core_Logic
             }
 
             return Status.SUCCESS;
+        }
+
+        public static Invoice Get(int id)
+        {
+            InvoiceModel model = Invoices.Get(id);
+            if (model == null)
+                return null;
+
+            Invoice invoice = new Invoice();
+            invoice._ModelToInvoice(model);
+            invoice.student = Student.Get(invoice.StudentID);
+
+            invoice.Payments = Payment.GetByInvoice(invoice.ID);
+
+            return invoice;
+        }
+        public static DataTable GetByStudent(int StudentID)
+        {
+            return Invoices.GetByStudent(StudentID);
         }
     }
 }

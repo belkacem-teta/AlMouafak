@@ -22,6 +22,14 @@ namespace Application_UI.invoices
         public frmShowInvoice(Invoice invoice)
         {
             InitializeComponent();
+
+            if (invoice.ID > 0)
+            {
+                btnSave.Visible = false;
+                btnClose.Visible = false;
+                contextMenuStrip1.Enabled = false;
+            }
+
             this.invoice = invoice;
             RefreshList();
         }

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +34,17 @@ namespace Data_Access
         public static InvoiceModel Get(int id)
         {
             return table.Get(id);
+        }
+        public static DataTable GetByStudent(int studentID)
+        {
+            using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
+            {
+                string sql = "SELECT * FROM Invoices WHERE StudentID = @StudentID ORDER BY IssueDate DESC;";
+                var reader = connection.ExecuteReader(sql, new {StudentID = studentID});
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
         }
     }
 }

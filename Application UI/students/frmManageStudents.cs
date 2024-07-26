@@ -194,5 +194,11 @@ namespace Application_UI.students
             Student student = Student.Get(Convert.ToInt32(dgvList.CurrentRow.Cells[0].Value));
             new frmAddInvoice(student).Show();
         }
+
+        private void showInvoicesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Student student = Student.Get(Convert.ToInt32(dgvList.CurrentRow.Cells[0].Value));
+            new frmShowInvoicesForStudent(student).ShowDialog();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace Application_UI.controls
 {
     public partial class ctrlFilteredStudentCard : UserControl
     {
+        public event Action onStudentSelected;
         public Student student
         {
             get { return ctrlStudentCard1.student; }
@@ -46,6 +47,8 @@ namespace Application_UI.controls
                 return;
 
             student = Student.Get(txtFirstName.Text, txtLastName.Text);
+            if (student != null)
+                onStudentSelected?.Invoke();
         }
     }
 }

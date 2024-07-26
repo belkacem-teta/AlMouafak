@@ -124,6 +124,18 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.75pt</value>
   </data>
+  <data name="ManageStudentsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 34</value>
+  </data>
+  <data name="ManageStudentsToolStripMenuItem.Text" xml:space="preserve">
+    <value>إدارة التلاميذ</value>
+  </data>
+  <data name="AddNewStudentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 34</value>
+  </data>
+  <data name="AddNewStudentToolStripMenuItem.Text" xml:space="preserve">
+    <value>إضافة تلميذ جديد</value>
+  </data>
   <data name="التلاميذToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 34</value>
   </data>
@@ -135,6 +147,24 @@
   </data>
   <data name="الإعداداتToolStripMenuItem.Text" xml:space="preserve">
     <value>الإعدادات</value>
+  </data>
+  <data name="AddInvoiceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 34</value>
+  </data>
+  <data name="AddInvoiceToolStripMenuItem.Text" xml:space="preserve">
+    <value>إنشاء بيان مستحقات</value>
+  </data>
+  <data name="ManageFeesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 34</value>
+  </data>
+  <data name="ManageFeesToolStripMenuItem.Text" xml:space="preserve">
+    <value>إدارة مبالغ المستحقات</value>
+  </data>
+  <data name="showInvoicesForStudentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 34</value>
+  </data>
+  <data name="showInvoicesForStudentToolStripMenuItem.Text" xml:space="preserve">
+    <value>عرض قائمة الفواتير</value>
   </data>
   <data name="المستحقاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 34</value>
@@ -166,30 +196,6 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="ManageStudentsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 34</value>
-  </data>
-  <data name="ManageStudentsToolStripMenuItem.Text" xml:space="preserve">
-    <value>إدارة التلاميذ</value>
-  </data>
-  <data name="AddNewStudentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 34</value>
-  </data>
-  <data name="AddNewStudentToolStripMenuItem.Text" xml:space="preserve">
-    <value>إضافة تلميذ جديد</value>
-  </data>
-  <data name="AddInvoiceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 34</value>
-  </data>
-  <data name="AddInvoiceToolStripMenuItem.Text" xml:space="preserve">
-    <value>إنشاء بيان مستحقات</value>
-  </data>
-  <data name="ManageFeesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 34</value>
-  </data>
-  <data name="ManageFeesToolStripMenuItem.Text" xml:space="preserve">
-    <value>إدارة مبالغ المستحقات</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -256,6 +262,12 @@
     <value>ManageFeesToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ManageFeesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showInvoicesForStudentToolStripMenuItem.Name" xml:space="preserve">
+    <value>showInvoicesForStudentToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;showInvoicesForStudentToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -169,5 +169,18 @@ namespace Core_Logic
                 _ID = model.ID;
             return result == 0;
         }
+
+        public static List<Payment> GetByInvoice(int invoiceID)
+        {
+            List<Payment> result = new List<Payment>();
+            List<PaymentModel> models = Payments.GetByInvoice(invoiceID);
+            foreach (var model in models)
+            {
+                Payment payment = new Payment();
+                payment._ModelToPayment(model);
+                result.Add(payment);
+            }
+            return result;
+        }
     }
 }

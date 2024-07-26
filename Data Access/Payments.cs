@@ -49,5 +49,15 @@ namespace Data_Access
             }
         }
 
+        public static List<PaymentModel> GetByInvoice(int invoiceID)
+        {
+            using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
+            {
+                string query = "SELECT * FROM Payments WHERE InvoiceID = @InvoiceID;";
+                List<PaymentModel> result = connection.Query<PaymentModel>(query, new { InvoiceID = invoiceID }).AsList();
+                return result;
+            }
+        }
+
     }
 }

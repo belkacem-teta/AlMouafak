@@ -37,6 +37,7 @@
             this.المستحقاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ManageFeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInvoicesForStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,8 @@
             // 
             this.المستحقاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddInvoiceToolStripMenuItem,
-            this.ManageFeesToolStripMenuItem});
+            this.ManageFeesToolStripMenuItem,
+            this.showInvoicesForStudentToolStripMenuItem});
             this.المستحقاتToolStripMenuItem.Name = "المستحقاتToolStripMenuItem";
             resources.ApplyResources(this.المستحقاتToolStripMenuItem, "المستحقاتToolStripMenuItem");
             // 
@@ -94,6 +96,12 @@
             this.ManageFeesToolStripMenuItem.Name = "ManageFeesToolStripMenuItem";
             resources.ApplyResources(this.ManageFeesToolStripMenuItem, "ManageFeesToolStripMenuItem");
             this.ManageFeesToolStripMenuItem.Click += new System.EventHandler(this.ManageFeesToolStripMenuItem_Click);
+            // 
+            // showInvoicesForStudentToolStripMenuItem
+            // 
+            this.showInvoicesForStudentToolStripMenuItem.Name = "showInvoicesForStudentToolStripMenuItem";
+            resources.ApplyResources(this.showInvoicesForStudentToolStripMenuItem, "showInvoicesForStudentToolStripMenuItem");
+            this.showInvoicesForStudentToolStripMenuItem.Click += new System.EventHandler(this.showInvoicesForStudentToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -121,6 +129,7 @@
         private System.Windows.Forms.ToolStripMenuItem المستحقاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddInvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ManageFeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showInvoicesForStudentToolStripMenuItem;
     }
 }
 

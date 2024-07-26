@@ -94,6 +94,12 @@
     <Compile Include="invoices\frmShowInvoice.Designer.cs">
       <DependentUpon>frmShowInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="invoices\frmShowInvoicesForStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="invoices\frmShowInvoicesForStudent.Designer.cs">
+      <DependentUpon>frmShowInvoicesForStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="payments\frmAddPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="invoices\frmShowInvoice.resx">
       <DependentUpon>frmShowInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="invoices\frmShowInvoicesForStudent.resx">
+      <DependentUpon>frmShowInvoicesForStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="payments\frmAddPayment.resx">
       <DependentUpon>frmAddPayment.cs</DependentUpon>

@@ -51,5 +51,13 @@ namespace Application_UI
                 MdiParent = this
             }.Show();
         }
+
+        private void showInvoicesForStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmShowInvoicesForStudent()
+            {
+                MdiParent = this
+            }.Show();
+        }
     }
 }
