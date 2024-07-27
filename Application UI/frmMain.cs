@@ -5,8 +5,10 @@ using Core_Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,30 @@ namespace Application_UI
         public frmMain()
         {
             InitializeComponent();
+            CheckDebts();
+        }
+
+        private void CheckDebts()
+        {
+            string filePath = ConfigurationManager.AppSettings["PathToMonthFile"];
+            try
+            {
+                int currentMonth = DateTime.Now.Month;
+                int oldMonth = 0;
+                if (File.Exists(filePath))
+                {
+                    string content = File.ReadAllText(filePath);
+                    int.TryParse(content, out oldMonth);
+                }
+
+                if (oldMonth != currentMonth) 
+                    Debt.AddDebts(currentMonth);
+                File.WriteAllText(filePath, currentMonth.ToString());
+            }
+            catch
+            {
+                Helper.ShowError();
+            }
         }
 
         private void ManageStudentsToolStripMenuItem_Click(object sender, EventArgs e)

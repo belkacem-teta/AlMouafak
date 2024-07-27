@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Core_Logic;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +9,11 @@ using System.Windows.Forms;
 
 namespace Application_UI
 {
+    public struct CustomColors
+    {
+        public static Color Debt = Color.LightCoral;
+        public static Color Paid = Color.LightSeaGreen;
+    }
     internal class Helper
     {
         public static void ShowError()

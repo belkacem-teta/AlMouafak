@@ -112,7 +112,12 @@ namespace Core_Logic
         public bool Save()
         {
             if (ID == -1)
-                return _Insert();
+            {
+                var result = _Insert();
+                if (!result && DateTime.Now.Day < 15)
+                    Debt.AddDebt(this, DateTime.Now.Month);
+                return result;
+            }
             else
                 return _Update();
         }
@@ -120,6 +125,10 @@ namespace Core_Logic
         public List<int> GetPaidMonths(PaymentTypes type)
         {
             return Payments.GetPaidMonths(this.ID, (int)type);
+        }
+        public List<int> GetDebtMonths(PaymentTypes type)
+        {
+            return Debts.GetDebtMonths(ID, (int)type);
         }
 
         public static Student Get(int id)

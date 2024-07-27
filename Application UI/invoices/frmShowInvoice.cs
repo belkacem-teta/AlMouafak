@@ -54,6 +54,7 @@ namespace Application_UI.invoices
             dgvPayments.Columns["student"].Visible = false;
             dgvPayments.Columns["StudentID"].Visible = false;
             dgvPayments.Columns["PaymentTypeID"].Visible = false;
+            dgvPayments.Columns["debt"].Visible = false;
         }
 
 

@@ -20,6 +20,7 @@ namespace Core_Logic
         private int _StudentID;
 
         private Student _student;
+        private Debt _debt;
 
         public int ID
         {
@@ -56,7 +57,18 @@ namespace Core_Logic
         public int? PaidMonth
         {
             get { return _PaidMonth; }
-            set { _PaidMonth = value; }
+            set 
+            {
+                if (value == null)
+                {
+                    _PaidMonth = null;
+                    return;
+                }
+                if (student.GetPaidMonths((PaymentTypes)PaymentTypeID).Contains(value.Value))
+                    return;
+                _PaidMonth = value;
+                debt = Debt.Get(StudentID, PaymentTypeID, _PaidMonth.Value);
+            }
         }
         public int StudentID
         {
@@ -74,10 +86,20 @@ namespace Core_Logic
             }
         }
 
+        public Debt debt
+        {
+            get { return _debt; }
+            set 
+            {
+                _debt = value;
+                if (value != null)
+                    _Amount = value.Amount;
+            }
+        }
+
         private Payment()
         {
             ID = -1;
-            PaidMonth = null;
         }
         private void _ModelToPayment(PaymentModel model)
         {
@@ -127,16 +149,16 @@ namespace Core_Logic
         {
             Payment payment = new Payment();
             payment._AutoFill(Fee.Get(MainFees.FEEDING));
-            payment.PaidMonth = DateTime.Now.Month;
             payment.student = std;
+            payment.PaidMonth = DateTime.Now.Month;
             return payment;
         }
         public static Payment NewTransportationPayment(Student std)
         {
             Payment payment = new Payment();
             payment._AutoFill(Fee.Get(MainFees.TRANSPORTATION));
-            payment.PaidMonth = DateTime.Now.Month;
             payment.student = std;
+            payment.PaidMonth = DateTime.Now.Month;
             return payment;
         }
         public static Payment NewTuitionPayment(Student std)
@@ -147,7 +169,8 @@ namespace Core_Logic
                 _Title = fee.Title,
                 _Amount = fee.Amount - (fee.Amount * std.TuitionCoupon),
                 _PaymentTypeID = fee.PaymentTypeID,
-                student = std
+                student = std,
+                PaidMonth = DateTime.Now.Month,
             };
             return payment;
         }
@@ -164,10 +187,16 @@ namespace Core_Logic
         internal bool Insert()
         {
             PaymentModel model = _PaymentToModel();
+
             int result = Payments.Insert(model);
-            if (result > 0)
-                _ID = model.ID;
-            return result == 0;
+            if (result == 0)
+                return true;
+
+            if (debt != null)
+                debt.MarkAsPaid();
+
+            _ID = model.ID;
+            return false;
         }
 
         public static List<Payment> GetByInvoice(int invoiceID)
@@ -181,6 +210,11 @@ namespace Core_Logic
                 result.Add(payment);
             }
             return result;
+        }
+
+        public static bool Exists(int studentID, int paymentTypeID, int paidMonth)
+        {
+            return Payments.Exists(studentID, paymentTypeID, paidMonth);
         }
     }
 }

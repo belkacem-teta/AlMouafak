@@ -56,28 +56,53 @@ namespace Application_UI.invoices
         {
             checkBox.Checked = true;
             checkBox.Enabled = false;
-            checkBox.BackColor = Color.LightSeaGreen;
+            checkBox.BackColor = CustomColors.Paid;
         }
-        private void MarkPaidMonths(Control parent, PaymentTypes paymentType)
+        private void MarkMonthAsDebt(CheckBox checkBox)
+        {
+            checkBox.BackColor = CustomColors.Debt;
+        }
+        private void MarkMonths(Control parent, PaymentTypes paymentType)
         {
             List<int> paidMonths = invoice.student.GetPaidMonths(paymentType);
+            List<int> debtMonths = invoice.student.GetDebtMonths(paymentType);
             foreach (Control c in parent.Controls)
             {
                 int tag = Convert.ToInt32(c.Tag);
+
+                if (debtMonths.Contains(tag))
+                    MarkMonthAsDebt((CheckBox)c);
+
                 if (paidMonths.Contains(tag))
-                {
                     MarkMonthAsPaid((CheckBox)c);
-                }
+            }
+        }
+        private void LockMonths()
+        {
+            foreach (Control c in grpTransportation.Controls)
+            {
+                CheckBox chk = (CheckBox)c;
+                if (chk.BackColor != CustomColors.Debt && !invoice.student.IsTransported)
+                    chk.Enabled = false;
+                else if (chk.BackColor != CustomColors.Paid)
+                    chk.Enabled = true;
+            }
+            foreach (Control c in grpFeeding.Controls)
+            {
+                CheckBox chk = (CheckBox)c;
+                if (chk.BackColor != CustomColors.Debt && !invoice.student.IsFed)
+                    chk.Enabled = false;
+                else if (chk.BackColor != CustomColors.Paid)
+                    chk.Enabled = true;
             }
         }
         private void InitPaymentsForm()
         {
-            MarkPaidMonths(grpTuition, PaymentTypes.TUITION);
-            MarkPaidMonths(grpTransportation, PaymentTypes.TRANSPORTATION);
-            MarkPaidMonths(grpFeeding, PaymentTypes.FEEDING);
-            
-            grpFeeding.Enabled = invoice.student.IsFed;
-            grpTransportation.Enabled = invoice.student.IsTransported;
+            MarkMonths(grpTuition, PaymentTypes.TUITION);
+            MarkMonths(grpTransportation, PaymentTypes.TRANSPORTATION);
+            MarkMonths(grpFeeding, PaymentTypes.FEEDING);
+
+            LockMonths();
 
             if (invoice.student.IsRegistered)
             {

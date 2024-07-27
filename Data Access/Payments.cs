@@ -58,6 +58,15 @@ namespace Data_Access
                 return result;
             }
         }
+        public static bool Exists(int studentID, int paymentTypeID, int paidMonth)
+        {
+            using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
+            {
+                string query = "SELECT COUNT(*) FROM Payments WHERE PaymentTypeID = @PaymentTypeID AND StudentID = @StudentID AND PaidMonth = @PaidMonth;";
+                var result = connection.ExecuteScalar<bool>(query, new { PaymentTypeID = paymentTypeID, StudentID = studentID, PaidMonth = paidMonth });
+                return result;
+            }
+        }
 
     }
 }
