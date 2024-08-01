@@ -16,6 +16,8 @@ namespace Core_Logic
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        public string FullName { get => $"{FirstName} {LastName}"; }
+
         private bool _IsMale;
         public bool IsMale
         {

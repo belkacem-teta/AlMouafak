@@ -13,6 +13,7 @@ namespace Application_UI.invoices
 {
     public partial class frmShowInvoice : Form
     {
+        public event Action<string> OnExit;
         Invoice invoice;
         readonly Dictionary<string, string> ColumnNamesMapping = new Dictionary<string, string>
         {
@@ -27,7 +28,6 @@ namespace Application_UI.invoices
             {
                 btnSave.Visible = false;
                 btnClose.Visible = false;
-                contextMenuStrip1.Enabled = false;
             }
 
             this.invoice = invoice;
@@ -57,26 +57,44 @@ namespace Application_UI.invoices
             dgvPayments.Columns["debt"].Visible = false;
         }
 
-
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (dgvPayments.SelectedRows.Count < 1)
-                return;
-            Payment payment = (Payment)dgvPayments.SelectedRows[0].DataBoundItem;
-            invoice.RemovePayment(payment);
-            RefreshList();
-        }
         private void btnClose_Click(object sender, EventArgs e)
         {
+            OnExit?.Invoke("CANCEL");
             this.Close();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (invoice.Save() == Invoice.Status.SUCCESS)
+            {
+                OnExit?.Invoke("SAVE");
                 this.Close();
+            }
             else
                 Helper.ShowError();
+        }
+
+        private void btnSaveAs_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.Description = "Select a folder";
+            folderBrowserDialog1.ShowNewFolderButton = true;
+            
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog1.SelectedPath))
+            {
+                if (invoice.ID == -1)
+                {
+                    if (invoice.Save() != Invoice.Status.SUCCESS)
+                    {
+                        Helper.ShowError();
+                        return;
+                    }
+                }
+                string folderPath = folderBrowserDialog1.SelectedPath;
+                Report.MakeExcelInvoice(invoice, folderPath);
+                OnExit?.Invoke("SAVE");
+                this.Close();
+            }
         }
     }
 }

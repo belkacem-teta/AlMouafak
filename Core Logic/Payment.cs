@@ -150,7 +150,6 @@ namespace Core_Logic
             Payment payment = new Payment();
             payment._AutoFill(Fee.Get(MainFees.FEEDING));
             payment.student = std;
-            payment.PaidMonth = DateTime.Now.Month;
             return payment;
         }
         public static Payment NewTransportationPayment(Student std)
@@ -158,7 +157,6 @@ namespace Core_Logic
             Payment payment = new Payment();
             payment._AutoFill(Fee.Get(MainFees.TRANSPORTATION));
             payment.student = std;
-            payment.PaidMonth = DateTime.Now.Month;
             return payment;
         }
         public static Payment NewTuitionPayment(Student std)
@@ -170,7 +168,6 @@ namespace Core_Logic
                 _Amount = fee.Amount - (fee.Amount * std.TuitionCoupon),
                 _PaymentTypeID = fee.PaymentTypeID,
                 student = std,
-                PaidMonth = DateTime.Now.Month,
             };
             return payment;
         }

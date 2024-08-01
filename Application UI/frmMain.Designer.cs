@@ -33,7 +33,6 @@
             this.التلاميذToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ManageStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddNewStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الإعداداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.المستحقاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ManageFeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +46,6 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.التلاميذToolStripMenuItem,
-            this.الإعداداتToolStripMenuItem,
             this.المستحقاتToolStripMenuItem});
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -70,11 +68,6 @@
             this.AddNewStudentToolStripMenuItem.Name = "AddNewStudentToolStripMenuItem";
             resources.ApplyResources(this.AddNewStudentToolStripMenuItem, "AddNewStudentToolStripMenuItem");
             this.AddNewStudentToolStripMenuItem.Click += new System.EventHandler(this.AddNewStudentToolStripMenuItem_Click);
-            // 
-            // الإعداداتToolStripMenuItem
-            // 
-            this.الإعداداتToolStripMenuItem.Name = "الإعداداتToolStripMenuItem";
-            resources.ApplyResources(this.الإعداداتToolStripMenuItem, "الإعداداتToolStripMenuItem");
             // 
             // المستحقاتToolStripMenuItem
             // 
@@ -125,7 +118,6 @@
         private System.Windows.Forms.ToolStripMenuItem التلاميذToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ManageStudentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddNewStudentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الإعداداتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem المستحقاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddInvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ManageFeesToolStripMenuItem;

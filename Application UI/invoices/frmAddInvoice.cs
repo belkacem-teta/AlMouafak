@@ -15,6 +15,8 @@ namespace Application_UI.invoices
     public partial class frmAddInvoice : Form
     {
         Invoice invoice;
+        List<Payment> otherPayments = new List<Payment>();
+
         public frmAddInvoice()
         {
             InitializeComponent();
@@ -116,18 +118,30 @@ namespace Application_UI.invoices
             this.Close();
         }
 
+        private void OnShowFormExit(string state)
+        {
+            if (state == "CANCEL")
+            {
+                invoice.ClearPayments();
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             PopulateInvoice();
             frmShowInvoice form = new frmShowInvoice(invoice);
+            form.OnExit += OnShowFormExit;
             form.ShowDialog();
-            this.Close();
         }
 
         private void PopulateInvoice()
         {
             invoice.Notes = txtNotes.Text;
-            if (chkRegistration.Checked && chkRegistration.Checked)
+            if (chkRegistration.Checked && chkRegistration.Enabled)
             {
                 Payment payment = Payment.NewRegistrationPayment(invoice.student);
                 invoice.AddPayment(payment);
@@ -162,12 +176,21 @@ namespace Application_UI.invoices
                     invoice.AddPayment(payment);
                 }
             }
+
+            foreach(var p in otherPayments)
+                invoice.AddPayment(p);
         }
 
         private void onOtherPaymentSave(Payment payment)
         {
+            otherPayments.Add(payment);
             lblOtherPayments.Text += $"{payment.Title} - {payment.Amount} د.ج \n";
-            invoice.AddPayment(payment);
+
+            if ((invoice.student.IsRegistered && otherPayments.Count == 3)
+                || (!invoice.student.IsRegistered && otherPayments.Count == 2))
+            {
+                btnAddOtherPayment.Enabled = false;
+            }
         }
 
         private void btnAddOtherPayment_Click(object sender, EventArgs e)
@@ -176,5 +199,6 @@ namespace Application_UI.invoices
             form.onSave += onOtherPaymentSave;
             form.ShowDialog();
         }
+
     }
 }

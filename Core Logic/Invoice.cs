@@ -175,6 +175,12 @@ namespace Core_Logic
             UpdateTotalAmount();
             return res;
         }
+        public void ClearPayments()
+        {
+            if (ID != -1)
+                return;
+            Payments.Clear();
+        }
         private bool Insert()
         {
             InvoiceModel model = _InvoiceToModel();

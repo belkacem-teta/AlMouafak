@@ -62,13 +62,13 @@ namespace Core_Logic
             this.Amount = Amount;
         }
 
-        public Debt(Payment payment) : this()
-        {
-            this.StudentID = payment.StudentID;
-            this.PaymentTypeID = payment.PaymentTypeID;
-            this.DebtMonth = payment.PaidMonth.Value;
-            this.Amount = payment.Amount;
-        }
+        //public Debt(Payment payment) : this()
+        //{
+        //    this.StudentID = payment.StudentID;
+        //    this.PaymentTypeID = payment.PaymentTypeID;
+        //    this.DebtMonth = payment.PaidMonth.Value;
+        //    this.Amount = payment.Amount;
+        //}
 
         private void _ModelToDebt(DebtModel model)
         {
