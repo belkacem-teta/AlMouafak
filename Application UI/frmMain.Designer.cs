@@ -30,13 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.التلاميذToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ManageStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddNewStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.المستحقاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ManageFeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showInvoicesForStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ManageFeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.إستخراجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feedingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TransportationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,36 +48,23 @@
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.التلاميذToolStripMenuItem,
-            this.المستحقاتToolStripMenuItem});
+            this.studentsToolStripMenuItem,
+            this.المستحقاتToolStripMenuItem,
+            this.إستخراجToolStripMenuItem});
             this.menuStrip1.Name = "menuStrip1";
             // 
-            // التلاميذToolStripMenuItem
+            // studentsToolStripMenuItem
             // 
-            this.التلاميذToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ManageStudentsToolStripMenuItem,
-            this.AddNewStudentToolStripMenuItem});
-            this.التلاميذToolStripMenuItem.Name = "التلاميذToolStripMenuItem";
-            resources.ApplyResources(this.التلاميذToolStripMenuItem, "التلاميذToolStripMenuItem");
-            // 
-            // ManageStudentsToolStripMenuItem
-            // 
-            this.ManageStudentsToolStripMenuItem.Name = "ManageStudentsToolStripMenuItem";
-            resources.ApplyResources(this.ManageStudentsToolStripMenuItem, "ManageStudentsToolStripMenuItem");
-            this.ManageStudentsToolStripMenuItem.Click += new System.EventHandler(this.ManageStudentsToolStripMenuItem_Click);
-            // 
-            // AddNewStudentToolStripMenuItem
-            // 
-            this.AddNewStudentToolStripMenuItem.Name = "AddNewStudentToolStripMenuItem";
-            resources.ApplyResources(this.AddNewStudentToolStripMenuItem, "AddNewStudentToolStripMenuItem");
-            this.AddNewStudentToolStripMenuItem.Click += new System.EventHandler(this.AddNewStudentToolStripMenuItem_Click);
+            this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
+            resources.ApplyResources(this.studentsToolStripMenuItem, "studentsToolStripMenuItem");
+            this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
             // المستحقاتToolStripMenuItem
             // 
             this.المستحقاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddInvoiceToolStripMenuItem,
-            this.ManageFeesToolStripMenuItem,
-            this.showInvoicesForStudentToolStripMenuItem});
+            this.showInvoicesForStudentToolStripMenuItem,
+            this.ManageFeesToolStripMenuItem});
             this.المستحقاتToolStripMenuItem.Name = "المستحقاتToolStripMenuItem";
             resources.ApplyResources(this.المستحقاتToolStripMenuItem, "المستحقاتToolStripMenuItem");
             // 
@@ -84,17 +74,51 @@
             resources.ApplyResources(this.AddInvoiceToolStripMenuItem, "AddInvoiceToolStripMenuItem");
             this.AddInvoiceToolStripMenuItem.Click += new System.EventHandler(this.AddInvoiceToolStripMenuItem_Click);
             // 
+            // showInvoicesForStudentToolStripMenuItem
+            // 
+            this.showInvoicesForStudentToolStripMenuItem.Name = "showInvoicesForStudentToolStripMenuItem";
+            resources.ApplyResources(this.showInvoicesForStudentToolStripMenuItem, "showInvoicesForStudentToolStripMenuItem");
+            this.showInvoicesForStudentToolStripMenuItem.Click += new System.EventHandler(this.showInvoicesForStudentToolStripMenuItem_Click);
+            // 
             // ManageFeesToolStripMenuItem
             // 
             this.ManageFeesToolStripMenuItem.Name = "ManageFeesToolStripMenuItem";
             resources.ApplyResources(this.ManageFeesToolStripMenuItem, "ManageFeesToolStripMenuItem");
             this.ManageFeesToolStripMenuItem.Click += new System.EventHandler(this.ManageFeesToolStripMenuItem_Click);
             // 
-            // showInvoicesForStudentToolStripMenuItem
+            // إستخراجToolStripMenuItem
             // 
-            this.showInvoicesForStudentToolStripMenuItem.Name = "showInvoicesForStudentToolStripMenuItem";
-            resources.ApplyResources(this.showInvoicesForStudentToolStripMenuItem, "showInvoicesForStudentToolStripMenuItem");
-            this.showInvoicesForStudentToolStripMenuItem.Click += new System.EventHandler(this.showInvoicesForStudentToolStripMenuItem_Click);
+            this.إستخراجToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.financesToolStripMenuItem,
+            this.studentsReportToolStripMenuItem,
+            this.feedingReportToolStripMenuItem,
+            this.TransportationReportToolStripMenuItem});
+            this.إستخراجToolStripMenuItem.Name = "إستخراجToolStripMenuItem";
+            resources.ApplyResources(this.إستخراجToolStripMenuItem, "إستخراجToolStripMenuItem");
+            // 
+            // financesToolStripMenuItem
+            // 
+            this.financesToolStripMenuItem.Name = "financesToolStripMenuItem";
+            resources.ApplyResources(this.financesToolStripMenuItem, "financesToolStripMenuItem");
+            this.financesToolStripMenuItem.Click += new System.EventHandler(this.financesToolStripMenuItem_Click);
+            // 
+            // studentsReportToolStripMenuItem
+            // 
+            this.studentsReportToolStripMenuItem.Name = "studentsReportToolStripMenuItem";
+            resources.ApplyResources(this.studentsReportToolStripMenuItem, "studentsReportToolStripMenuItem");
+            this.studentsReportToolStripMenuItem.Click += new System.EventHandler(this.studentsReportToolStripMenuItem_Click);
+            // 
+            // feedingReportToolStripMenuItem
+            // 
+            this.feedingReportToolStripMenuItem.Name = "feedingReportToolStripMenuItem";
+            resources.ApplyResources(this.feedingReportToolStripMenuItem, "feedingReportToolStripMenuItem");
+            this.feedingReportToolStripMenuItem.Click += new System.EventHandler(this.feedingReportToolStripMenuItem_Click);
+            // 
+            // TransportationReportToolStripMenuItem
+            // 
+            this.TransportationReportToolStripMenuItem.Name = "TransportationReportToolStripMenuItem";
+            resources.ApplyResources(this.TransportationReportToolStripMenuItem, "TransportationReportToolStripMenuItem");
+            this.TransportationReportToolStripMenuItem.Click += new System.EventHandler(this.TransportationReportToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -115,13 +139,16 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem التلاميذToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ManageStudentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AddNewStudentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem المستحقاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddInvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ManageFeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showInvoicesForStudentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem إستخراجToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem financesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentsReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feedingReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TransportationReportToolStripMenuItem;
     }
 }
 

@@ -200,5 +200,13 @@ namespace Application_UI.students
             Student student = Student.Get(Convert.ToInt32(dgvList.CurrentRow.Cells[0].Value));
             new frmShowInvoicesForStudent(student).ShowDialog();
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (dgvList.SelectedRows.Count == 0)
+                contextMenuStrip1.Enabled = false;
+            else
+                contextMenuStrip1.Enabled = true;
+        }
     }
 }

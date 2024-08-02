@@ -57,12 +57,14 @@
     <Compile Include="Invoices.cs" />
     <Compile Include="Payments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports.cs" />
     <Compile Include="Students.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="database\almouafak.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="database\code.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

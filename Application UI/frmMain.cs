@@ -47,19 +47,12 @@ namespace Application_UI
             }
         }
 
-        private void ManageStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmManageStudents()
             {
                 MdiParent = this,
             }.Show();
-        }
-
-        private void AddNewStudentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAddEditStudent form = new frmAddEditStudent(new Student());
-            form.MdiParent = this;
-            form.Show();
         }
 
         private void AddInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,6 +77,50 @@ namespace Application_UI
             {
                 MdiParent = this
             }.Show();
+        }
+
+        private string GetFilePath(string fileName)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "حفظ ملف";
+                saveFileDialog.FileName = $"{fileName}.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    return saveFileDialog.FileName;
+                }
+                return "";
+            }
+        }
+
+        private void financesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = GetFilePath($"التقرير المالي لشهر {Months.NAMES[DateTime.Now.Month]}");
+            if (path != "")
+                Report.MakeFinancesReport(path);
+        }
+
+        private void studentsReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = GetFilePath($"قائمة التلاميذ لشهر {Months.NAMES[DateTime.Now.Month]}");
+            if (path != "")
+                Report.MakeStudentsReport(path);
+        }
+
+        private void feedingReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = GetFilePath($"قائمة المستفيدين من الإطعام لشهر {Months.NAMES[DateTime.Now.Month]}");
+            if (path != "")
+                Report.MakeFedStudentsReport(path);
+        }
+
+        private void TransportationReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = GetFilePath($"قائمة المستفيدين من النقل لشهر {Months.NAMES[DateTime.Now.Month]}");
+            if (path != "")
+                Report.MakeTransportedStudentsReport(path);
         }
     }
 }

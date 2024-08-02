@@ -1,8 +1,10 @@
 ﻿using ClosedXML.Excel;
+using Data_Access;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -115,5 +117,56 @@ namespace Core_Logic
                 workbook.SaveAs(excelOutputPath);
             }
         }
+
+
+        public static void MakeReport(string filePath, string title, DataTable data)
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.AddWorksheet();
+
+                worksheet.Cell("A1").Value = title;
+
+                short counter = 1;
+                foreach (DataColumn col in data.Columns)
+                {
+                    worksheet.Cell(2, counter).Value = col.ColumnName;
+                    counter++;
+                }
+
+                worksheet.Cell("A3").InsertData(data);
+                worksheet.Range(2, 1, data.Rows.Count + 2, data.Columns.Count).CreateTable();
+                workbook.SaveAs(filePath);
+            }
+        }
+
+        public static void MakeFinancesReport(string filePath)
+        {
+            string title = $"التقرير المالي من شهر سبتمبر إلى شهر {Months.NAMES[DateTime.Now.Month]}";
+            var dt = Reports.GetFinancesView();
+            MakeReport(filePath, title, dt);
+        }
+
+        public static void MakeFedStudentsReport(string filePath)
+        {
+            string title = $"قائمة الإطعام لشهر {Months.NAMES[DateTime.Now.Month]}";
+            var dt = Reports.GetFedStudents();
+            MakeReport(filePath, title, dt);
+        }
+
+        public static void MakeTransportedStudentsReport(string filePath)
+        {
+            string title = $"قائمة النقل لشهر {Months.NAMES[DateTime.Now.Month]}";
+            var dt = Reports.GetTransportedStudents();
+            MakeReport(filePath, title, dt);
+        }
+
+        public static void MakeStudentsReport(string filePath)
+        {
+            string title = $"قائمة التلاميذ لشهر {Months.NAMES[DateTime.Now.Month]}";
+            var dt = Reports.GetStudents();
+            MakeReport(filePath, title, dt);
+        }
+
     }
 }

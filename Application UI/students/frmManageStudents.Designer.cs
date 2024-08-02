@@ -37,13 +37,13 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInvoice = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInvoicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbSearch = new System.Windows.Forms.ComboBox();
-            this.showInvoicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +65,7 @@
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvList.Location = new System.Drawing.Point(16, 95);
-            this.dgvList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(4);
             this.dgvList.MultiSelect = false;
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
@@ -88,6 +88,7 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.contextMenuStrip1.Size = new System.Drawing.Size(212, 176);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // showToolStripMenuItem
             // 
@@ -124,11 +125,18 @@
             this.addInvoice.Text = "إضافة بيان مستحقات";
             this.addInvoice.Click += new System.EventHandler(this.addInvoice_Click);
             // 
+            // showInvoicesToolStripMenuItem
+            // 
+            this.showInvoicesToolStripMenuItem.Name = "showInvoicesToolStripMenuItem";
+            this.showInvoicesToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.showInvoicesToolStripMenuItem.Text = "عرض قائمة الفواتير";
+            this.showInvoicesToolStripMenuItem.Click += new System.EventHandler(this.showInvoicesToolStripMenuItem_Click);
+            // 
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Location = new System.Drawing.Point(1196, 647);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 28);
             this.btnClose.TabIndex = 1;
@@ -139,7 +147,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(1161, 59);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(135, 28);
             this.btnAdd.TabIndex = 2;
@@ -162,7 +170,7 @@
             this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilter.FormattingEnabled = true;
             this.cbFilter.Location = new System.Drawing.Point(133, 62);
-            this.cbFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFilter.Margin = new System.Windows.Forms.Padding(4);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(160, 24);
             this.cbFilter.TabIndex = 4;
@@ -171,7 +179,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(303, 62);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(248, 22);
             this.txtSearch.TabIndex = 5;
@@ -182,18 +190,11 @@
             this.cbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSearch.FormattingEnabled = true;
             this.cbSearch.Location = new System.Drawing.Point(303, 62);
-            this.cbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.cbSearch.Name = "cbSearch";
             this.cbSearch.Size = new System.Drawing.Size(160, 24);
             this.cbSearch.TabIndex = 6;
             this.cbSearch.SelectedIndexChanged += new System.EventHandler(this.cbSearch_SelectedIndexChanged);
-            // 
-            // showInvoicesToolStripMenuItem
-            // 
-            this.showInvoicesToolStripMenuItem.Name = "showInvoicesToolStripMenuItem";
-            this.showInvoicesToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
-            this.showInvoicesToolStripMenuItem.Text = "عرض قائمة الفواتير";
-            this.showInvoicesToolStripMenuItem.Click += new System.EventHandler(this.showInvoicesToolStripMenuItem_Click);
             // 
             // frmManageStudents
             // 
@@ -209,7 +210,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmManageStudents";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
