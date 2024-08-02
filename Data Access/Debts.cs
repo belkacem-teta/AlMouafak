@@ -15,7 +15,6 @@ namespace Data_Access
         public int PaymentTypeID { get; set; }
         public int DebtMonth { get;  set; }
         public decimal Amount { get; set; }
-        public bool IsPaid { get; set; }
     }
     public class Debts
     {
@@ -26,7 +25,6 @@ namespace Data_Access
                 "PaymentTypeID",
                 "DebtMonth",
                 "Amount",
-                "IsPaid",
             });
 
         public static int Insert(DebtModel model)
@@ -34,12 +32,13 @@ namespace Data_Access
             return table.Insert(model);
         }
 
-        public static int MarkAsPaid(int id) {
+        public static int Delete(int id)
+        {
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
-                string query = "UPDATE Debts SET IsPaid = 1 WHERE ID = @ID";
-                int result = connection.Execute(query, new { ID = id });
-                return result;
+                string query = "DELETE FROM Debts WHERE ID = @ID";
+                var rowsAffected = connection.Execute(query, new {ID = id});
+                return rowsAffected;
             }
         }
 
@@ -52,7 +51,7 @@ namespace Data_Access
         {
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
-                string query = "SELECT DebtMonth FROM Debts WHERE PaymentTypeID = @PaymentTypeID AND StudentID = @StudentID AND IsPaid = 0";
+                string query = "SELECT DebtMonth FROM Debts WHERE PaymentTypeID = @PaymentTypeID AND StudentID = @StudentID";
                 List<int> result = connection.Query<int>(query, new { PaymentTypeID = paymentTypeID, StudentID = studentID }).AsList();
                 return result;
             }

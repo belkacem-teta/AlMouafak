@@ -190,7 +190,7 @@ namespace Core_Logic
                 return true;
 
             if (debt != null)
-                debt.MarkAsPaid();
+                debt.Delete();
 
             _ID = model.ID;
             return false;

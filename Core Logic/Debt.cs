@@ -17,7 +17,6 @@ namespace Core_Logic
         private int _PaymentTypeID;
         private int _DebtMonth;
         private decimal _Amount;
-        private bool _IsPaid;
         public int ID
         {
             get { return _ID; }
@@ -43,16 +42,10 @@ namespace Core_Logic
             get { return _Amount; }
             private set { _Amount = value; }
         }
-        public bool IsPaid 
-        {
-            get { return _IsPaid; }
-            private set { _IsPaid = value; }
-        }
 
         private Debt()
         {
             ID = -1;
-            IsPaid = false;
         }
         public Debt(int StudentID, int PaymentTypeID, int DebtMonth, decimal Amount) : this()
         {
@@ -77,7 +70,6 @@ namespace Core_Logic
             _PaymentTypeID = model.PaymentTypeID;
             _DebtMonth = model.DebtMonth;
             _Amount = model.Amount;
-            _IsPaid = model.IsPaid;
         }
         private DebtModel _DebtToModel()
         {
@@ -87,7 +79,6 @@ namespace Core_Logic
             model.PaymentTypeID = _PaymentTypeID;
             model.DebtMonth = _DebtMonth;
             model.Amount = _Amount;
-            model.IsPaid = _IsPaid;
             return model;
         }
         private bool Insert()
@@ -97,10 +88,9 @@ namespace Core_Logic
                 return true;
             return Debts.Insert(model) == 0;
         }
-
-        public void MarkAsPaid()
+        public bool Delete()
         {
-            Debts.MarkAsPaid(ID);
+            return Delete(this.ID);
         }
 
         public bool save()
@@ -108,6 +98,11 @@ namespace Core_Logic
             if (ID == -1)
                 return Insert();
             return true;
+        }
+
+        public static bool Delete(int id)
+        {
+            return Debts.Delete(id) == 0;
         }
 
         public static Debt Get(int studentID, int paymentTypeID, int debtMonth)
