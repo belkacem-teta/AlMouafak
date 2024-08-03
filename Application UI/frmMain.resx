@@ -155,25 +155,25 @@
     <value>إدارة المستحقات</value>
   </data>
   <data name="financesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 34</value>
+    <value>223, 34</value>
   </data>
   <data name="financesToolStripMenuItem.Text" xml:space="preserve">
     <value>التقرير المالي</value>
   </data>
   <data name="studentsReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 34</value>
+    <value>223, 34</value>
   </data>
   <data name="studentsReportToolStripMenuItem.Text" xml:space="preserve">
     <value>قائمة التلاميذ</value>
   </data>
   <data name="feedingReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 34</value>
+    <value>223, 34</value>
   </data>
   <data name="feedingReportToolStripMenuItem.Text" xml:space="preserve">
     <value>قائمة الإطعام</value>
   </data>
   <data name="TransportationReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 34</value>
+    <value>223, 34</value>
   </data>
   <data name="TransportationReportToolStripMenuItem.Text" xml:space="preserve">
     <value>قائمة النقل</value>

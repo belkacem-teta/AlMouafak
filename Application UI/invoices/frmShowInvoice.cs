@@ -76,25 +76,21 @@ namespace Application_UI.invoices
 
         private void btnSaveAs_Click(object sender, EventArgs e)
         {
-            folderBrowserDialog1.Description = "Select a folder";
-            folderBrowserDialog1.ShowNewFolderButton = true;
-            
-            DialogResult result = folderBrowserDialog1.ShowDialog();
-            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog1.SelectedPath))
+            if (invoice.ID == -1)
             {
-                if (invoice.ID == -1)
+                if (invoice.Save() != Invoice.Status.SUCCESS)
                 {
-                    if (invoice.Save() != Invoice.Status.SUCCESS)
-                    {
-                        Helper.ShowError();
-                        return;
-                    }
+                    Helper.ShowError();
+                    return;
                 }
-                string folderPath = folderBrowserDialog1.SelectedPath;
-                Report.MakeExcelInvoice(invoice, folderPath);
-                OnExit?.Invoke("SAVE");
-                this.Close();
             }
+            string filePath = Helper.SaveExcelFile($"بيان المستحقات رقم {invoice.ID}");
+            Task.Run(() => Report.MakeExcelInvoice(invoice, filePath));
+            OnExit?.Invoke("SAVE");
+            this.Close();
         }
+
+
+
     }
 }

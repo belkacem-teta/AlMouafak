@@ -22,7 +22,10 @@ namespace Application_UI
         {
             InitializeComponent();
             CheckDebts();
+
+            this.Text += $" v{Helper.GetVersionNumber()}";
         }
+
 
         private void CheckDebts()
         {
@@ -79,48 +82,32 @@ namespace Application_UI
             }.Show();
         }
 
-        private string GetFilePath(string fileName)
-        {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.Title = "حفظ ملف";
-                saveFileDialog.FileName = $"{fileName}.xlsx";
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    return saveFileDialog.FileName;
-                }
-                return "";
-            }
-        }
-
         private void financesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = GetFilePath($"التقرير المالي لشهر {Months.NAMES[DateTime.Now.Month]}");
+            string path = Helper.SaveExcelFile($"التقرير المالي لشهر {Months.NAMES[DateTime.Now.Month]}");
             if (path != "")
-                Report.MakeFinancesReport(path);
+                Task.Run(() => Report.MakeFinancesReport(path));
         }
 
         private void studentsReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = GetFilePath($"قائمة التلاميذ لشهر {Months.NAMES[DateTime.Now.Month]}");
+            string path = Helper.SaveExcelFile($"قائمة التلاميذ لشهر {Months.NAMES[DateTime.Now.Month]}");
             if (path != "")
-                Report.MakeStudentsReport(path);
+                Task.Run(() => Report.MakeStudentsReport(path));
         }
 
         private void feedingReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = GetFilePath($"قائمة المستفيدين من الإطعام لشهر {Months.NAMES[DateTime.Now.Month]}");
+            string path = Helper.SaveExcelFile($"قائمة المستفيدين من الإطعام لشهر {Months.NAMES[DateTime.Now.Month]}");
             if (path != "")
-                Report.MakeFedStudentsReport(path);
+                Task.Run(() => Report.MakeFedStudentsReport(path));
         }
 
         private void TransportationReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = GetFilePath($"قائمة المستفيدين من النقل لشهر {Months.NAMES[DateTime.Now.Month]}");
+            string path = Helper.SaveExcelFile($"قائمة المستفيدين من النقل لشهر {Months.NAMES[DateTime.Now.Month]}");
             if (path != "")
-                Report.MakeTransportedStudentsReport(path);
+                Task.Run(() => Report.MakeTransportedStudentsReport(path));
         }
     }
 }

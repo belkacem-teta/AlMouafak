@@ -146,7 +146,8 @@ from Fees
 CREATE VIEW viewFinances AS
 SELECT 
     s.RegNumber as 'رقم التسجيل',
-    s.FirstName || ' ' || s.LastName as 'الإسم واللقب', 
+	s.FirstName as 'الإسم',
+	s.LastName as 'اللقب',
     IFNULL(p.TotalPaid, 0) AS 'إجمالي المستحقات المدفوعة', 
     IFNULL(d.TotalDebt, 0) AS 'إجمالي المستحقات غير المدفوعة'
 FROM 

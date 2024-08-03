@@ -1,6 +1,7 @@
 ﻿using Core_Logic;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,29 @@ namespace Application_UI
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true; 
+            }
+        }
+
+        public static string GetVersionNumber()
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versioninfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            return versioninfo.FileVersion;
+        }
+
+        public static string SaveExcelFile(string fileName)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "حفظ ملف";
+                saveFileDialog.FileName = $"{fileName}.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    return saveFileDialog.FileName;
+                }
+                return "";
             }
         }
           

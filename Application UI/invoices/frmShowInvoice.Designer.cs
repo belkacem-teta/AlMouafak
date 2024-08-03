@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnSaveAs = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +54,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(632, 533);
+            this.btnSave.Location = new System.Drawing.Point(612, 533);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 1;
@@ -65,7 +64,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(551, 533);
+            this.btnClose.Location = new System.Drawing.Point(531, 533);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
@@ -92,9 +91,9 @@
             // 
             // btnSaveAs
             // 
-            this.btnSaveAs.Location = new System.Drawing.Point(713, 533);
+            this.btnSaveAs.Location = new System.Drawing.Point(693, 533);
             this.btnSaveAs.Name = "btnSaveAs";
-            this.btnSaveAs.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveAs.Size = new System.Drawing.Size(95, 23);
             this.btnSaveAs.TabIndex = 5;
             this.btnSaveAs.Text = "حفظ كملف";
             this.btnSaveAs.UseVisualStyleBackColor = true;
@@ -133,6 +132,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnSaveAs;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

@@ -29,11 +29,9 @@ namespace Core_Logic
                 );
             return result;
         }
-        public static void MakeExcelInvoice(Invoice invoice, string savePath)
+        public static void MakeExcelInvoice(Invoice invoice, string filePath)
         {
             string templatePath = ConfigurationManager.AppSettings["PathToInvoiceTemplate"];
-            string excelOutputPath = Path.Combine(savePath, $"Invoice{invoice.ID}.xlsx");
-            string pdfOutputPath = Path.Combine(savePath, $"Invoice{invoice.ID}.pdf");
 
             using (var workbook = new XLWorkbook(templatePath))
             {
@@ -114,7 +112,7 @@ namespace Core_Logic
                 worksheet.Cell("C37").Value = worksheet.Cell("C16").Value;
                 worksheet.Cell("D37").Value = worksheet.Cell("D16").Value;
 
-                workbook.SaveAs(excelOutputPath);
+                workbook.SaveAs(filePath);
             }
         }
 
