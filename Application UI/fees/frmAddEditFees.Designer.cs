@@ -43,24 +43,27 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 28);
+            this.label1.Location = new System.Drawing.Point(27, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "إسم المستحقات";
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(23, 54);
+            this.txtTitle.Location = new System.Drawing.Point(31, 66);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(336, 20);
+            this.txtTitle.Size = new System.Drawing.Size(447, 22);
             this.txtTitle.TabIndex = 1;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(297, 176);
+            this.btnSave.Location = new System.Drawing.Point(396, 217);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "حفظ";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -68,9 +71,10 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(216, 176);
+            this.btnClose.Location = new System.Drawing.Point(288, 217);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(100, 28);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "إلغاء";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -78,18 +82,21 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(23, 126);
+            this.txtAmount.Location = new System.Drawing.Point(31, 155);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(336, 20);
+            this.txtAmount.Size = new System.Drawing.Size(447, 22);
             this.txtAmount.TabIndex = 4;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 99);
+            this.label2.Location = new System.Drawing.Point(27, 122);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(37, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "المبلغ";
             // 
@@ -99,9 +106,9 @@
             // 
             // frmAddEditFees
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 211);
+            this.ClientSize = new System.Drawing.Size(512, 260);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.btnClose);
@@ -109,6 +116,7 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAddEditFees";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;

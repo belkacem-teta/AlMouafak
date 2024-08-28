@@ -40,7 +40,9 @@
             this.studentsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TransportationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -120,10 +122,17 @@
             resources.ApplyResources(this.TransportationReportToolStripMenuItem, "TransportationReportToolStripMenuItem");
             this.TransportationReportToolStripMenuItem.Click += new System.EventHandler(this.TransportationReportToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -131,6 +140,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,6 +159,7 @@
         private System.Windows.Forms.ToolStripMenuItem studentsReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feedingReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TransportationReportToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

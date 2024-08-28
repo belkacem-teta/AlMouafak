@@ -24,8 +24,8 @@ namespace Application_UI
             CheckDebts();
 
             this.Text += $" v{Helper.GetVersionNumber()}";
+            pictureBox1.ImageLocation = ConfigurationManager.AppSettings["PathToBackImage"];
         }
-
 
         private void CheckDebts()
         {
@@ -52,34 +52,22 @@ namespace Application_UI
 
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmManageStudents()
-            {
-                MdiParent = this,
-            }.Show();
+            new frmManageStudents().ShowDialog();
         }
 
         private void AddInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAddInvoice()
-            {
-                MdiParent = this
-            }.Show();
+            new frmAddInvoice().ShowDialog();
         }
 
         private void ManageFeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmManageFees()
-            {
-                MdiParent = this
-            }.Show();
+            new frmManageFees().ShowDialog();
         }
 
         private void showInvoicesForStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmShowInvoicesForStudent()
-            {
-                MdiParent = this
-            }.Show();
+            new frmShowInvoicesForStudent().ShowDialog();
         }
 
         private void financesToolStripMenuItem_Click(object sender, EventArgs e)

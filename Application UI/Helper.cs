@@ -59,7 +59,7 @@ namespace Application_UI
             {
                 saveFileDialog.Filter = "Excel Files|*.xlsx";
                 saveFileDialog.Title = "حفظ ملف";
-                saveFileDialog.FileName = $"{fileName}.xlsx";
+                saveFileDialog.FileName = fileName;
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {

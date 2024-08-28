@@ -62,103 +62,118 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 74);
+            this.label1.Location = new System.Drawing.Point(16, 91);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.Size = new System.Drawing.Size(71, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "رقم التسجيل: ";
             // 
             // txtRegNumber
             // 
-            this.txtRegNumber.Location = new System.Drawing.Point(87, 71);
+            this.txtRegNumber.Location = new System.Drawing.Point(116, 87);
+            this.txtRegNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRegNumber.Name = "txtRegNumber";
-            this.txtRegNumber.Size = new System.Drawing.Size(196, 20);
+            this.txtRegNumber.Size = new System.Drawing.Size(260, 22);
             this.txtRegNumber.TabIndex = 1;
             this.txtRegNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegNumber_KeyPress);
+            this.txtRegNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtRegNumber_Validating);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 144);
+            this.label2.Location = new System.Drawing.Point(16, 177);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new System.Drawing.Size(33, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "اللقب:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 109);
+            this.label3.Location = new System.Drawing.Point(16, 134);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "الإسم:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 234);
+            this.label4.Location = new System.Drawing.Point(16, 288);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 13);
+            this.label4.Size = new System.Drawing.Size(166, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "نسبة الخصم من حقوق التمدرس %";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(318, 148);
+            this.label7.Location = new System.Drawing.Point(424, 182);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 13);
+            this.label7.Size = new System.Drawing.Size(51, 16);
             this.label7.TabIndex = 7;
             this.label7.Text = "المستوى:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(318, 74);
+            this.label8.Location = new System.Drawing.Point(424, 91);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.Size = new System.Drawing.Size(82, 16);
             this.label8.TabIndex = 8;
             this.label8.Text = "تاريخ التسجيل: ";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(318, 109);
+            this.label9.Location = new System.Drawing.Point(424, 134);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.Size = new System.Drawing.Size(73, 16);
             this.label9.TabIndex = 9;
             this.label9.Text = "تاريخ الميلاد: ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 179);
+            this.label10.Location = new System.Drawing.Point(16, 220);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 13);
+            this.label10.Size = new System.Drawing.Size(45, 16);
             this.label10.TabIndex = 10;
             this.label10.Text = "الجنس: ";
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(87, 106);
+            this.txtFirstName.Location = new System.Drawing.Point(116, 130);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(196, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(260, 22);
             this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(87, 141);
+            this.txtLastName.Location = new System.Drawing.Point(116, 174);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(196, 20);
+            this.txtLastName.Size = new System.Drawing.Size(260, 22);
             this.txtLastName.TabIndex = 3;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // rdIsMale
             // 
             this.rdIsMale.AutoSize = true;
-            this.rdIsMale.Location = new System.Drawing.Point(87, 177);
+            this.rdIsMale.Location = new System.Drawing.Point(116, 218);
+            this.rdIsMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdIsMale.Name = "rdIsMale";
-            this.rdIsMale.Size = new System.Drawing.Size(42, 17);
+            this.rdIsMale.Size = new System.Drawing.Size(47, 20);
             this.rdIsMale.TabIndex = 4;
             this.rdIsMale.TabStop = true;
             this.rdIsMale.Text = "ذكر";
@@ -167,9 +182,10 @@
             // rdIsFemale
             // 
             this.rdIsFemale.AutoSize = true;
-            this.rdIsFemale.Location = new System.Drawing.Point(135, 177);
+            this.rdIsFemale.Location = new System.Drawing.Point(180, 218);
+            this.rdIsFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdIsFemale.Name = "rdIsFemale";
-            this.rdIsFemale.Size = new System.Drawing.Size(48, 17);
+            this.rdIsFemale.Size = new System.Drawing.Size(51, 20);
             this.rdIsFemale.TabIndex = 5;
             this.rdIsFemale.TabStop = true;
             this.rdIsFemale.Text = "أنثى";
@@ -178,45 +194,50 @@
             // dtEntryDate
             // 
             this.dtEntryDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtEntryDate.Location = new System.Drawing.Point(402, 71);
+            this.dtEntryDate.Location = new System.Drawing.Point(536, 87);
+            this.dtEntryDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtEntryDate.Name = "dtEntryDate";
             this.dtEntryDate.RightToLeftLayout = true;
-            this.dtEntryDate.Size = new System.Drawing.Size(170, 20);
+            this.dtEntryDate.Size = new System.Drawing.Size(225, 22);
             this.dtEntryDate.TabIndex = 6;
             // 
             // dtBrithDate
             // 
             this.dtBrithDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtBrithDate.Location = new System.Drawing.Point(402, 106);
+            this.dtBrithDate.Location = new System.Drawing.Point(536, 130);
+            this.dtBrithDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtBrithDate.Name = "dtBrithDate";
             this.dtBrithDate.RightToLeftLayout = true;
-            this.dtBrithDate.Size = new System.Drawing.Size(170, 20);
+            this.dtBrithDate.Size = new System.Drawing.Size(225, 22);
             this.dtBrithDate.TabIndex = 7;
             // 
             // cbGrade
             // 
             this.cbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGrade.FormattingEnabled = true;
-            this.cbGrade.Location = new System.Drawing.Point(402, 141);
+            this.cbGrade.Location = new System.Drawing.Point(536, 174);
+            this.cbGrade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbGrade.Name = "cbGrade";
-            this.cbGrade.Size = new System.Drawing.Size(170, 21);
+            this.cbGrade.Size = new System.Drawing.Size(225, 24);
             this.cbGrade.TabIndex = 8;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(318, 179);
+            this.label11.Location = new System.Drawing.Point(424, 220);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 13);
+            this.label11.Size = new System.Drawing.Size(54, 16);
             this.label11.TabIndex = 18;
             this.label11.Text = "المجموعة:";
             // 
             // chkIsFed
             // 
             this.chkIsFed.AutoSize = true;
-            this.chkIsFed.Location = new System.Drawing.Point(15, 263);
+            this.chkIsFed.Location = new System.Drawing.Point(20, 324);
+            this.chkIsFed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkIsFed.Name = "chkIsFed";
-            this.chkIsFed.Size = new System.Drawing.Size(145, 17);
+            this.chkIsFed.Size = new System.Drawing.Size(155, 20);
             this.chkIsFed.TabIndex = 11;
             this.chkIsFed.Text = "الإستفادة من خدمة الإطعام.";
             this.chkIsFed.UseVisualStyleBackColor = true;
@@ -224,25 +245,28 @@
             // chkIsTransported
             // 
             this.chkIsTransported.AutoSize = true;
-            this.chkIsTransported.Location = new System.Drawing.Point(15, 286);
+            this.chkIsTransported.Location = new System.Drawing.Point(20, 352);
+            this.chkIsTransported.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkIsTransported.Name = "chkIsTransported";
-            this.chkIsTransported.Size = new System.Drawing.Size(136, 17);
+            this.chkIsTransported.Size = new System.Drawing.Size(144, 20);
             this.chkIsTransported.TabIndex = 12;
             this.chkIsTransported.Text = "الإستفادة من خدمة النقل.";
             this.chkIsTransported.UseVisualStyleBackColor = true;
             // 
             // numTuitionCoupon
             // 
-            this.numTuitionCoupon.Location = new System.Drawing.Point(169, 232);
+            this.numTuitionCoupon.Location = new System.Drawing.Point(225, 286);
+            this.numTuitionCoupon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numTuitionCoupon.Name = "numTuitionCoupon";
-            this.numTuitionCoupon.Size = new System.Drawing.Size(120, 20);
+            this.numTuitionCoupon.Size = new System.Drawing.Size(160, 22);
             this.numTuitionCoupon.TabIndex = 10;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(497, 326);
+            this.btnSave.Location = new System.Drawing.Point(663, 401);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "حفظ";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -251,9 +275,10 @@
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(416, 326);
+            this.btnClose.Location = new System.Drawing.Point(555, 401);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(100, 28);
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "تراجع";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -263,23 +288,25 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Teal;
-            this.lblTitle.Location = new System.Drawing.Point(12, 19);
+            this.lblTitle.Location = new System.Drawing.Point(16, 23);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(560, 31);
+            this.lblTitle.Size = new System.Drawing.Size(747, 38);
             this.lblTitle.TabIndex = 26;
             this.lblTitle.Text = "إضافة تلميذ جديد";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // numGroup
             // 
-            this.numGroup.Location = new System.Drawing.Point(402, 174);
+            this.numGroup.Location = new System.Drawing.Point(536, 214);
+            this.numGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numGroup.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numGroup.Name = "numGroup";
-            this.numGroup.Size = new System.Drawing.Size(170, 20);
+            this.numGroup.Size = new System.Drawing.Size(227, 22);
             this.numGroup.TabIndex = 9;
             this.numGroup.Value = new decimal(new int[] {
             1,
@@ -294,10 +321,10 @@
             // frmAddEditStudent
             // 
             this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(584, 361);
+            this.ClientSize = new System.Drawing.Size(779, 444);
             this.Controls.Add(this.numGroup);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnClose);
@@ -323,6 +350,7 @@
             this.Controls.Add(this.txtRegNumber);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAddEditStudent";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;

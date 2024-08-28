@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStudent = new System.Windows.Forms.TabPage();
-            this.ctrlFilteredStudentCard1 = new Application_UI.controls.ctrlFilteredStudentCard();
             this.tabManagement = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
@@ -83,6 +82,7 @@
             this.deletePaymentTooltip = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ctrlFilteredStudentCard1 = new Application_UI.controls.ctrlFilteredStudentCard();
             this.tabControl1.SuspendLayout();
             this.tabStudent.SuspendLayout();
             this.tabManagement.SuspendLayout();
@@ -120,16 +120,6 @@
             this.tabStudent.TabIndex = 0;
             this.tabStudent.Text = "معلومات التلميذ";
             this.tabStudent.UseVisualStyleBackColor = true;
-            // 
-            // ctrlFilteredStudentCard1
-            // 
-            this.ctrlFilteredStudentCard1.Location = new System.Drawing.Point(37, 4);
-            this.ctrlFilteredStudentCard1.Margin = new System.Windows.Forms.Padding(5);
-            this.ctrlFilteredStudentCard1.Name = "ctrlFilteredStudentCard1";
-            this.ctrlFilteredStudentCard1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ctrlFilteredStudentCard1.Size = new System.Drawing.Size(667, 462);
-            this.ctrlFilteredStudentCard1.student = null;
-            this.ctrlFilteredStudentCard1.TabIndex = 0;
             // 
             // tabManagement
             // 
@@ -235,7 +225,7 @@
             // checkBox21
             // 
             this.checkBox21.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox21.Location = new System.Drawing.Point(228, 30);
+            this.checkBox21.Location = new System.Drawing.Point(225, 30);
             this.checkBox21.Name = "checkBox21";
             this.checkBox21.Size = new System.Drawing.Size(63, 33);
             this.checkBox21.TabIndex = 9;
@@ -246,7 +236,7 @@
             // checkBox22
             // 
             this.checkBox22.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox22.Location = new System.Drawing.Point(158, 30);
+            this.checkBox22.Location = new System.Drawing.Point(152, 30);
             this.checkBox22.Name = "checkBox22";
             this.checkBox22.Size = new System.Drawing.Size(63, 33);
             this.checkBox22.TabIndex = 8;
@@ -257,7 +247,7 @@
             // checkBox23
             // 
             this.checkBox23.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox23.Location = new System.Drawing.Point(88, 30);
+            this.checkBox23.Location = new System.Drawing.Point(79, 30);
             this.checkBox23.Name = "checkBox23";
             this.checkBox23.Size = new System.Drawing.Size(63, 33);
             this.checkBox23.TabIndex = 7;
@@ -268,7 +258,7 @@
             // checkBox24
             // 
             this.checkBox24.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox24.Location = new System.Drawing.Point(18, 30);
+            this.checkBox24.Location = new System.Drawing.Point(6, 30);
             this.checkBox24.Name = "checkBox24";
             this.checkBox24.Size = new System.Drawing.Size(63, 33);
             this.checkBox24.TabIndex = 6;
@@ -290,7 +280,7 @@
             // checkBox26
             // 
             this.checkBox26.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox26.Location = new System.Drawing.Point(578, 30);
+            this.checkBox26.Location = new System.Drawing.Point(590, 30);
             this.checkBox26.Name = "checkBox26";
             this.checkBox26.Size = new System.Drawing.Size(63, 33);
             this.checkBox26.TabIndex = 4;
@@ -301,7 +291,7 @@
             // checkBox27
             // 
             this.checkBox27.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox27.Location = new System.Drawing.Point(508, 30);
+            this.checkBox27.Location = new System.Drawing.Point(517, 30);
             this.checkBox27.Name = "checkBox27";
             this.checkBox27.Size = new System.Drawing.Size(63, 33);
             this.checkBox27.TabIndex = 3;
@@ -312,7 +302,7 @@
             // checkBox28
             // 
             this.checkBox28.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox28.Location = new System.Drawing.Point(438, 30);
+            this.checkBox28.Location = new System.Drawing.Point(444, 30);
             this.checkBox28.Name = "checkBox28";
             this.checkBox28.Size = new System.Drawing.Size(63, 33);
             this.checkBox28.TabIndex = 2;
@@ -323,7 +313,7 @@
             // checkBox29
             // 
             this.checkBox29.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox29.Location = new System.Drawing.Point(368, 30);
+            this.checkBox29.Location = new System.Drawing.Point(371, 30);
             this.checkBox29.Name = "checkBox29";
             this.checkBox29.Size = new System.Drawing.Size(63, 33);
             this.checkBox29.TabIndex = 1;
@@ -334,7 +324,7 @@
             // checkBox30
             // 
             this.checkBox30.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox30.Location = new System.Drawing.Point(648, 30);
+            this.checkBox30.Location = new System.Drawing.Point(663, 30);
             this.checkBox30.Name = "checkBox30";
             this.checkBox30.Size = new System.Drawing.Size(63, 33);
             this.checkBox30.TabIndex = 0;
@@ -364,7 +354,7 @@
             // checkBox11
             // 
             this.checkBox11.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox11.Location = new System.Drawing.Point(228, 30);
+            this.checkBox11.Location = new System.Drawing.Point(225, 30);
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Size = new System.Drawing.Size(63, 33);
             this.checkBox11.TabIndex = 9;
@@ -375,7 +365,7 @@
             // checkBox12
             // 
             this.checkBox12.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox12.Location = new System.Drawing.Point(158, 30);
+            this.checkBox12.Location = new System.Drawing.Point(152, 30);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(63, 33);
             this.checkBox12.TabIndex = 8;
@@ -386,7 +376,7 @@
             // checkBox13
             // 
             this.checkBox13.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox13.Location = new System.Drawing.Point(88, 30);
+            this.checkBox13.Location = new System.Drawing.Point(79, 30);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(63, 33);
             this.checkBox13.TabIndex = 7;
@@ -397,7 +387,7 @@
             // checkBox14
             // 
             this.checkBox14.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox14.Location = new System.Drawing.Point(18, 30);
+            this.checkBox14.Location = new System.Drawing.Point(6, 30);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(63, 33);
             this.checkBox14.TabIndex = 6;
@@ -419,7 +409,7 @@
             // checkBox16
             // 
             this.checkBox16.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox16.Location = new System.Drawing.Point(578, 30);
+            this.checkBox16.Location = new System.Drawing.Point(590, 30);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.Size = new System.Drawing.Size(63, 33);
             this.checkBox16.TabIndex = 4;
@@ -430,7 +420,7 @@
             // checkBox17
             // 
             this.checkBox17.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox17.Location = new System.Drawing.Point(508, 30);
+            this.checkBox17.Location = new System.Drawing.Point(517, 30);
             this.checkBox17.Name = "checkBox17";
             this.checkBox17.Size = new System.Drawing.Size(63, 33);
             this.checkBox17.TabIndex = 3;
@@ -441,7 +431,7 @@
             // checkBox18
             // 
             this.checkBox18.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox18.Location = new System.Drawing.Point(438, 30);
+            this.checkBox18.Location = new System.Drawing.Point(444, 30);
             this.checkBox18.Name = "checkBox18";
             this.checkBox18.Size = new System.Drawing.Size(63, 33);
             this.checkBox18.TabIndex = 2;
@@ -452,7 +442,7 @@
             // checkBox19
             // 
             this.checkBox19.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox19.Location = new System.Drawing.Point(368, 30);
+            this.checkBox19.Location = new System.Drawing.Point(371, 30);
             this.checkBox19.Name = "checkBox19";
             this.checkBox19.Size = new System.Drawing.Size(63, 33);
             this.checkBox19.TabIndex = 1;
@@ -463,7 +453,7 @@
             // checkBox20
             // 
             this.checkBox20.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox20.Location = new System.Drawing.Point(648, 30);
+            this.checkBox20.Location = new System.Drawing.Point(663, 30);
             this.checkBox20.Name = "checkBox20";
             this.checkBox20.Size = new System.Drawing.Size(63, 33);
             this.checkBox20.TabIndex = 0;
@@ -493,7 +483,7 @@
             // checkBox6
             // 
             this.checkBox6.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox6.Location = new System.Drawing.Point(228, 30);
+            this.checkBox6.Location = new System.Drawing.Point(225, 30);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(63, 33);
             this.checkBox6.TabIndex = 9;
@@ -504,7 +494,7 @@
             // checkBox7
             // 
             this.checkBox7.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox7.Location = new System.Drawing.Point(158, 30);
+            this.checkBox7.Location = new System.Drawing.Point(152, 30);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(63, 33);
             this.checkBox7.TabIndex = 8;
@@ -515,7 +505,7 @@
             // checkBox8
             // 
             this.checkBox8.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox8.Location = new System.Drawing.Point(88, 30);
+            this.checkBox8.Location = new System.Drawing.Point(79, 30);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(63, 33);
             this.checkBox8.TabIndex = 7;
@@ -526,7 +516,7 @@
             // checkBox9
             // 
             this.checkBox9.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox9.Location = new System.Drawing.Point(18, 30);
+            this.checkBox9.Location = new System.Drawing.Point(6, 30);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(63, 33);
             this.checkBox9.TabIndex = 6;
@@ -548,7 +538,7 @@
             // checkBox5
             // 
             this.checkBox5.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox5.Location = new System.Drawing.Point(578, 30);
+            this.checkBox5.Location = new System.Drawing.Point(590, 30);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(63, 33);
             this.checkBox5.TabIndex = 4;
@@ -559,7 +549,7 @@
             // checkBox4
             // 
             this.checkBox4.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox4.Location = new System.Drawing.Point(508, 30);
+            this.checkBox4.Location = new System.Drawing.Point(517, 30);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(63, 33);
             this.checkBox4.TabIndex = 3;
@@ -570,7 +560,7 @@
             // checkBox3
             // 
             this.checkBox3.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox3.Location = new System.Drawing.Point(438, 30);
+            this.checkBox3.Location = new System.Drawing.Point(444, 30);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(63, 33);
             this.checkBox3.TabIndex = 2;
@@ -581,7 +571,7 @@
             // checkBox2
             // 
             this.checkBox2.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox2.Location = new System.Drawing.Point(368, 30);
+            this.checkBox2.Location = new System.Drawing.Point(371, 30);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(63, 33);
             this.checkBox2.TabIndex = 1;
@@ -592,7 +582,7 @@
             // chkTuition9
             // 
             this.chkTuition9.BackColor = System.Drawing.Color.Transparent;
-            this.chkTuition9.Location = new System.Drawing.Point(648, 30);
+            this.chkTuition9.Location = new System.Drawing.Point(663, 30);
             this.chkTuition9.Name = "chkTuition9";
             this.chkTuition9.Size = new System.Drawing.Size(63, 33);
             this.chkTuition9.TabIndex = 0;
@@ -679,6 +669,16 @@
             this.btnClose.Text = "إلغاء";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // ctrlFilteredStudentCard1
+            // 
+            this.ctrlFilteredStudentCard1.Location = new System.Drawing.Point(37, 4);
+            this.ctrlFilteredStudentCard1.Margin = new System.Windows.Forms.Padding(5);
+            this.ctrlFilteredStudentCard1.Name = "ctrlFilteredStudentCard1";
+            this.ctrlFilteredStudentCard1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ctrlFilteredStudentCard1.Size = new System.Drawing.Size(667, 462);
+            this.ctrlFilteredStudentCard1.student = null;
+            this.ctrlFilteredStudentCard1.TabIndex = 0;
             // 
             // frmAddInvoice
             // 

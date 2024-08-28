@@ -92,6 +92,17 @@ namespace Data_Access
                 return dt;
             }
         }
+
+        public static List<string> GetRegNumbers()
+        {
+            using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
+            {
+                string query = "SELECT RegNumber FROM Students;";
+                List<string> result = connection.Query<string>(query).ToList();
+                return result;
+            }
+        }
+
     }
 
 }

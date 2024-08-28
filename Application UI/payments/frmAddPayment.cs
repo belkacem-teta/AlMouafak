@@ -45,5 +45,10 @@ namespace Application_UI.payments
             txtTitle.Text = fee.Title;
             txtAmount.Text = fee.Amount.ToString();
         }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.NumericTextBox_KeyPress(sender, e);
+        }
     }
 }

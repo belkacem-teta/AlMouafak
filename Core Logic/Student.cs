@@ -161,5 +161,10 @@ namespace Core_Logic
         {
             return Students.Delete(id) == 0;
         }
+
+        public static List<string> GetRegNumbers()
+        {
+            return Students.GetRegNumbers();
+        }
     }
 }

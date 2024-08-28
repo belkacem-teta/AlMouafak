@@ -1,5 +1,6 @@
 ﻿using Core_Logic;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Application_UI.students
@@ -7,10 +8,15 @@ namespace Application_UI.students
     public partial class frmAddEditStudent : Form
     {
         Student student;
+        List<string> regNumbers;
         public frmAddEditStudent(Student student)
         {
             InitializeComponent();
             this.student = student;
+
+            this.regNumbers = Student.GetRegNumbers();
+            if (student.ID > 0)
+                regNumbers.Remove(student.RegNumber);
         }
 
         private void frmAddEditStudent_Load(object sender, EventArgs e)
@@ -76,9 +82,23 @@ namespace Application_UI.students
             this.Close();
         }
 
+        private bool ValidateRegNumber()
+        {
+            if (!Helper.ValidateEmptyTextBox(txtRegNumber, errorProvider1))
+            {
+                if (regNumbers.Contains(txtRegNumber.Text))
+                {
+                    errorProvider1.SetError(txtRegNumber, "يوجد تلميذ مسجل بهذا الرقم");
+                    return true;
+                }
+                return false;
+            }
+            return true;
+        }
+
         private bool ValidateForm()
         {
-            return Helper.ValidateEmptyTextBox(txtRegNumber, errorProvider1) |
+            return ValidateRegNumber() |
                 Helper.ValidateEmptyTextBox(txtFirstName, errorProvider1) |
                 Helper.ValidateEmptyTextBox(txtLastName, errorProvider1);
         }
@@ -98,6 +118,21 @@ namespace Application_UI.students
         private void txtRegNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             Helper.NumericTextBox_KeyPress(sender, e);
+        }
+
+        private void txtRegNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ValidateRegNumber();
+        }
+
+        private void txtFirstName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Helper.ValidateEmptyTextBox((TextBox)sender, errorProvider1);
+        }
+
+        private void txtLastName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Helper.ValidateEmptyTextBox((TextBox)sender, errorProvider1);
         }
     }
 }

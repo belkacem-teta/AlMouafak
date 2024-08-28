@@ -59,5 +59,10 @@ namespace Application_UI.fees
             else
                 this.Close();
         }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.NumericTextBox_KeyPress(sender, e);
+        }
     }
 }
