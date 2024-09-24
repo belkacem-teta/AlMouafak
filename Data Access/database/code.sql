@@ -68,6 +68,12 @@ CREATE TABLE "Debts" (
 	PRIMARY KEY("ID" AUTOINCREMENT)
 );
 
+CREATE TABLE "Expenses" (
+	"ID"	INTEGER,
+	"IssueDate"	TEXT NOT NULL,
+	"Amount"	NUMERIC NOT NULL,
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);
 
 
 
@@ -148,19 +154,72 @@ SELECT
     s.RegNumber as 'رقم التسجيل',
 	s.FirstName as 'الإسم',
 	s.LastName as 'اللقب',
-    IFNULL(p.TotalPaid, 0) AS 'إجمالي المستحقات المدفوعة', 
-    IFNULL(d.TotalDebt, 0) AS 'إجمالي المستحقات غير المدفوعة'
+	IFNULL(TotalRegisteration, 0) as 'إجمالي تسديد حقوق التسجيل',
+	IFNULL(TotalTuition, 0) as 'إجمالي تسديد حقوق التمدرس',
+	IFNULL(TotalFeeding, 0) as 'إجمالي تسديد حقوق الإطعام',
+	IFNULL(TotalTransportation, 0) as 'إجمالي تسديد حقوق النقل',
+	IFNULL(TotalOthers, 0) as 'إجمالي تسديد حقوق أخرى',
+    IFNULL(p.TotalPaid, 0) AS 'إجمالي التسديد', 
+	IFNULL(TotalRegisterationDebt, 0) as 'باقي تسديد حقوق التسجيل', 
+	IFNULL(TotalTuitionDebt, 0) as 'باقي تسديد حقوق التمدرس', 
+	IFNULL(TotalFeedingDebt, 0) as 'باقي تسديد حقوق الإطعام', 
+	IFNULL(TotalTransportationDebt, 0) as 'باقي تسديد حقوق النقل', 
+    IFNULL(d.TotalDebt, 0) AS 'باقي التسديد'
 FROM 
     Students s
+LEFT JOIN 
+    (SELECT StudentID, Sum(Amount) AS TotalRegisteration
+     FROM Payments
+	 WHERE PaymentTypeID = 1
+     GROUP BY StudentID) reg ON s.ID = reg.StudentID
+LEFT JOIN 
+    (SELECT StudentID, Sum(Amount) AS TotalTuition
+     FROM Payments
+	 WHERE PaymentTypeID = 2
+     GROUP BY StudentID) tuition ON s.ID = tuition.StudentID
+LEFT JOIN 
+    (SELECT StudentID, Sum(Amount) AS TotalFeeding
+     FROM Payments
+	 WHERE PaymentTypeID = 3
+     GROUP BY StudentID) feeding ON s.ID = feeding.StudentID
+LEFT JOIN 
+    (SELECT StudentID, Sum(Amount) AS TotalTransportation
+     FROM Payments
+	 WHERE PaymentTypeID = 4
+     GROUP BY StudentID) transp ON s.ID = transp.StudentID
+LEFT JOIN 
+    (SELECT StudentID, Sum(Amount) AS TotalOthers
+     FROM Payments
+	 WHERE PaymentTypeID = 5
+     GROUP BY StudentID) others ON s.ID = others.StudentID
 LEFT JOIN 
     (SELECT StudentID, SUM(Amount) AS TotalPaid
      FROM Payments
      GROUP BY StudentID) p ON s.ID = p.StudentID
 LEFT JOIN 
+    (SELECT StudentID, SUM(Amount) AS TotalRegisterationDebt
+     FROM Debts
+	 WHERE PaymentTypeID = 1
+     GROUP BY StudentID) regdebt ON s.ID = regdebt.StudentID
+LEFT JOIN 
+    (SELECT StudentID, SUM(Amount) AS TotalTuitionDebt
+     FROM Debts
+	 WHERE PaymentTypeID = 2
+     GROUP BY StudentID) tuitionDebt ON s.ID = tuitionDebt.StudentID
+LEFT JOIN 
+    (SELECT StudentID, SUM(Amount) AS TotalFeedingDebt
+     FROM Debts
+	 WHERE PaymentTypeID = 3
+     GROUP BY StudentID) feedingDebt ON s.ID = feedingDebt.StudentID
+LEFT JOIN 
+    (SELECT StudentID, SUM(Amount) AS TotalTransportationDebt
+     FROM Debts
+	 WHERE PaymentTypeID = 4
+     GROUP BY StudentID) transpDebt ON s.ID = transpDebt.StudentID
+LEFT JOIN 
     (SELECT StudentID, SUM(Amount) AS TotalDebt
      FROM Debts
      GROUP BY StudentID) d ON s.ID = d.StudentID
-WHERE s.IsDeleted = 0
 ;
 
 

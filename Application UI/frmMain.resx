@@ -130,11 +130,77 @@
   <data name="studentsToolStripMenuItem.Text" xml:space="preserve">
     <value>إدارة التلاميذ</value>
   </data>
+  <data name="AddInvoiceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 34</value>
+  </data>
+  <data name="AddInvoiceToolStripMenuItem.Text" xml:space="preserve">
+    <value>إنشاء بيان مستحقات</value>
+  </data>
+  <data name="showInvoicesForStudentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 34</value>
+  </data>
+  <data name="showInvoicesForStudentToolStripMenuItem.Text" xml:space="preserve">
+    <value>عرض قائمة الفواتير</value>
+  </data>
+  <data name="ManageFeesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 34</value>
+  </data>
+  <data name="ManageFeesToolStripMenuItem.Text" xml:space="preserve">
+    <value>إدارة مبالغ المستحقات</value>
+  </data>
   <data name="المستحقاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 34</value>
   </data>
   <data name="المستحقاتToolStripMenuItem.Text" xml:space="preserve">
     <value>إدارة المستحقات</value>
+  </data>
+  <data name="ManageExpensesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 34</value>
+  </data>
+  <data name="ManageExpensesToolStripMenuItem.Text" xml:space="preserve">
+    <value>إدارة النفقات</value>
+  </data>
+  <data name="annualToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 34</value>
+  </data>
+  <data name="annualToolStripMenuItem.Text" xml:space="preserve">
+    <value>السنوي</value>
+  </data>
+  <data name="monthlyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 34</value>
+  </data>
+  <data name="monthlyToolStripMenuItem.Text" xml:space="preserve">
+    <value>الشهري</value>
+  </data>
+  <data name="dailyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 34</value>
+  </data>
+  <data name="dailyToolStripMenuItem.Text" xml:space="preserve">
+    <value>اليومي</value>
+  </data>
+  <data name="financesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 34</value>
+  </data>
+  <data name="financesToolStripMenuItem.Text" xml:space="preserve">
+    <value>التقرير المالي</value>
+  </data>
+  <data name="studentsReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 34</value>
+  </data>
+  <data name="studentsReportToolStripMenuItem.Text" xml:space="preserve">
+    <value>قائمة التلاميذ</value>
+  </data>
+  <data name="feedingReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 34</value>
+  </data>
+  <data name="feedingReportToolStripMenuItem.Text" xml:space="preserve">
+    <value>قائمة الإطعام</value>
+  </data>
+  <data name="TransportationReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 34</value>
+  </data>
+  <data name="TransportationReportToolStripMenuItem.Text" xml:space="preserve">
+    <value>قائمة النقل</value>
   </data>
   <data name="إستخراجToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 34</value>
@@ -166,48 +232,6 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="AddInvoiceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 34</value>
-  </data>
-  <data name="AddInvoiceToolStripMenuItem.Text" xml:space="preserve">
-    <value>إنشاء بيان مستحقات</value>
-  </data>
-  <data name="showInvoicesForStudentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 34</value>
-  </data>
-  <data name="showInvoicesForStudentToolStripMenuItem.Text" xml:space="preserve">
-    <value>عرض قائمة الفواتير</value>
-  </data>
-  <data name="ManageFeesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 34</value>
-  </data>
-  <data name="ManageFeesToolStripMenuItem.Text" xml:space="preserve">
-    <value>إدارة مبالغ المستحقات</value>
-  </data>
-  <data name="financesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 34</value>
-  </data>
-  <data name="financesToolStripMenuItem.Text" xml:space="preserve">
-    <value>التقرير المالي</value>
-  </data>
-  <data name="studentsReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 34</value>
-  </data>
-  <data name="studentsReportToolStripMenuItem.Text" xml:space="preserve">
-    <value>قائمة التلاميذ</value>
-  </data>
-  <data name="feedingReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 34</value>
-  </data>
-  <data name="feedingReportToolStripMenuItem.Text" xml:space="preserve">
-    <value>قائمة الإطعام</value>
-  </data>
-  <data name="TransportationReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 34</value>
-  </data>
-  <data name="TransportationReportToolStripMenuItem.Text" xml:space="preserve">
-    <value>قائمة النقل</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -294,6 +318,12 @@
   <data name="&gt;&gt;ManageFeesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ManageExpensesToolStripMenuItem.Name" xml:space="preserve">
+    <value>ManageExpensesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ManageExpensesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;إستخراجToolStripMenuItem.Name" xml:space="preserve">
     <value>إستخراجToolStripMenuItem</value>
   </data>
@@ -304,6 +334,24 @@
     <value>financesToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;financesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;annualToolStripMenuItem.Name" xml:space="preserve">
+    <value>annualToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;annualToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;monthlyToolStripMenuItem.Name" xml:space="preserve">
+    <value>monthlyToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;monthlyToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dailyToolStripMenuItem.Name" xml:space="preserve">
+    <value>dailyToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;dailyToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;studentsReportToolStripMenuItem.Name" xml:space="preserve">

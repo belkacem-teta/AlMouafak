@@ -35,8 +35,12 @@
             this.AddInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showInvoicesForStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ManageFeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ManageExpensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.إستخراجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.annualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TransportationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +56,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.studentsToolStripMenuItem,
             this.المستحقاتToolStripMenuItem,
+            this.ManageExpensesToolStripMenuItem,
             this.إستخراجToolStripMenuItem});
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -88,6 +93,12 @@
             resources.ApplyResources(this.ManageFeesToolStripMenuItem, "ManageFeesToolStripMenuItem");
             this.ManageFeesToolStripMenuItem.Click += new System.EventHandler(this.ManageFeesToolStripMenuItem_Click);
             // 
+            // ManageExpensesToolStripMenuItem
+            // 
+            this.ManageExpensesToolStripMenuItem.Name = "ManageExpensesToolStripMenuItem";
+            resources.ApplyResources(this.ManageExpensesToolStripMenuItem, "ManageExpensesToolStripMenuItem");
+            this.ManageExpensesToolStripMenuItem.Click += new System.EventHandler(this.ManageExpensesToolStripMenuItem_Click);
+            // 
             // إستخراجToolStripMenuItem
             // 
             this.إستخراجToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -100,15 +111,36 @@
             // 
             // financesToolStripMenuItem
             // 
+            this.financesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.annualToolStripMenuItem,
+            this.monthlyToolStripMenuItem,
+            this.dailyToolStripMenuItem});
             this.financesToolStripMenuItem.Name = "financesToolStripMenuItem";
             resources.ApplyResources(this.financesToolStripMenuItem, "financesToolStripMenuItem");
             this.financesToolStripMenuItem.Click += new System.EventHandler(this.financesToolStripMenuItem_Click);
+            // 
+            // annualToolStripMenuItem
+            // 
+            this.annualToolStripMenuItem.Name = "annualToolStripMenuItem";
+            resources.ApplyResources(this.annualToolStripMenuItem, "annualToolStripMenuItem");
+            this.annualToolStripMenuItem.Click += new System.EventHandler(this.annualToolStripMenuItem_Click);
+            // 
+            // monthlyToolStripMenuItem
+            // 
+            this.monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
+            resources.ApplyResources(this.monthlyToolStripMenuItem, "monthlyToolStripMenuItem");
+            this.monthlyToolStripMenuItem.Click += new System.EventHandler(this.monthlyToolStripMenuItem_Click);
+            // 
+            // dailyToolStripMenuItem
+            // 
+            this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
+            resources.ApplyResources(this.dailyToolStripMenuItem, "dailyToolStripMenuItem");
+            this.dailyToolStripMenuItem.Click += new System.EventHandler(this.dailyToolStripMenuItem_Click);
             // 
             // studentsReportToolStripMenuItem
             // 
             this.studentsReportToolStripMenuItem.Name = "studentsReportToolStripMenuItem";
             resources.ApplyResources(this.studentsReportToolStripMenuItem, "studentsReportToolStripMenuItem");
-            this.studentsReportToolStripMenuItem.Click += new System.EventHandler(this.studentsReportToolStripMenuItem_Click);
             // 
             // feedingReportToolStripMenuItem
             // 
@@ -160,6 +192,10 @@
         private System.Windows.Forms.ToolStripMenuItem feedingReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TransportationReportToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem ManageExpensesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem annualToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem monthlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dailyToolStripMenuItem;
     }
 }
 

@@ -46,5 +46,20 @@ namespace Data_Access
                 return dt;
             }
         }
+
+        public static decimal GetTotalAmountPerDay(DateTime date)
+        {
+            using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
+            {
+                string query = "SELECT SUM(TotalAmount) FROM Invoices where strftime('%Y', IssueDate) = @y AND strftime('%m', IssueDate) = @m AND strftime('%d', IssueDate) = @d;";
+                var result = connection.ExecuteScalar<decimal>(query, new 
+                { 
+                    y = date.ToString("yyyy"),
+                    m = date.ToString("MM"),
+                    d = date.ToString("dd"),
+                });
+                return result;
+            }
+        }
     }
 }

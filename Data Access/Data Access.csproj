@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BaseTable.cs" />
     <Compile Include="Debts.cs" />
+    <Compile Include="Expenses.cs" />
     <Compile Include="Fees.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Invoices.cs" />

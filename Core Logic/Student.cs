@@ -116,7 +116,7 @@ namespace Core_Logic
             if (ID == -1)
             {
                 var result = _Insert();
-                if (!result && DateTime.Now.Day < 15)
+                if (!result)
                     Debt.AddDebt(this, DateTime.Now.Month);
                 return result;
             }

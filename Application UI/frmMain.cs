@@ -1,5 +1,7 @@
-﻿using Application_UI.fees;
+﻿using Application_UI.expenses;
+using Application_UI.fees;
 using Application_UI.invoices;
+using Application_UI.reports;
 using Application_UI.students;
 using Core_Logic;
 using System;
@@ -72,16 +74,6 @@ namespace Application_UI
 
         private void financesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = Helper.SaveExcelFile($"التقرير المالي لشهر {Months.NAMES[DateTime.Now.Month]}");
-            if (path != "")
-                Task.Run(() => Report.MakeFinancesReport(path));
-        }
-
-        private void studentsReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string path = Helper.SaveExcelFile($"قائمة التلاميذ لشهر {Months.NAMES[DateTime.Now.Month]}");
-            if (path != "")
-                Task.Run(() => Report.MakeStudentsReport(path));
         }
 
         private void feedingReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +88,28 @@ namespace Application_UI
             string path = Helper.SaveExcelFile($"قائمة المستفيدين من النقل لشهر {Months.NAMES[DateTime.Now.Month]}");
             if (path != "")
                 Task.Run(() => Report.MakeTransportedStudentsReport(path));
+        }
+
+        private void ManageExpensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmManageExpenses().ShowDialog();
+        }
+
+        private void annualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = Helper.SaveExcelFile($"التقرير المالي السنوي {DateTime.Now.ToString("yyyy-MM-dd")} ");
+            if (path != "")
+                Task.Run(() => Report.MakeAnnualReport(path));
+        }
+
+        private void monthlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmMonthlyReport().ShowDialog();
+        }
+
+        private void dailyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmDailyReport().ShowDialog();
         }
     }
 }

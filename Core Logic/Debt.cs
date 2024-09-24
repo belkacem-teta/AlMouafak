@@ -105,6 +105,16 @@ namespace Core_Logic
             return Debts.Delete(id) == 0;
         }
 
+        public static Debt Get(int studentID, int paymentTypeID)
+        {
+            var model = Debts.Get(studentID, paymentTypeID);
+            if (model == null)
+                return null;
+            var debt = new Debt();
+            debt._ModelToDebt(model);
+            return debt;
+        }
+
         public static Debt Get(int studentID, int paymentTypeID, int debtMonth)
         {
             var model = Debts.Get(studentID, paymentTypeID, debtMonth);
@@ -127,6 +137,12 @@ namespace Core_Logic
             Debt debt;
             switch (paymentTypeID)
             {
+                case (int)PaymentTypes.REGISTRATION:
+                    if (Get(student.ID, paymentTypeID) != null)
+                        return;
+                    Fee regFee = Fee.Get(MainFees.REGISTRATION);
+                    debt = new Debt(student.ID, paymentTypeID, debtMonth, regFee.Amount);
+                    break;
                 case (int)PaymentTypes.TRANSPORTATION:
                     Fee transportationFee = Fee.Get(MainFees.TRANSPORTATION);
                     debt = new Debt(student.ID, paymentTypeID, debtMonth, transportationFee.Amount);
@@ -150,6 +166,9 @@ namespace Core_Logic
         {
             if (month > 6 && month < 9)
                 return;
+
+            if (!student.IsRegistered)
+                AddDebt(student, (int)PaymentTypes.REGISTRATION, month);
 
             AddDebt(student, (int)PaymentTypes.TUITION, month);
             if (student.IsTransported)

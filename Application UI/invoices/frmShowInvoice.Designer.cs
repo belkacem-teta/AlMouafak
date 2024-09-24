@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnSaveAs = new System.Windows.Forms.Button();
+            this.txtNotes = new System.Windows.Forms.TextBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,12 +51,12 @@
             this.dgvPayments.RowHeadersWidth = 51;
             this.dgvPayments.RowTemplate.Height = 24;
             this.dgvPayments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPayments.Size = new System.Drawing.Size(776, 476);
+            this.dgvPayments.Size = new System.Drawing.Size(776, 407);
             this.dgvPayments.TabIndex = 0;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(612, 533);
+            this.btnSave.Location = new System.Drawing.Point(511, 533);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 1;
@@ -64,7 +66,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(531, 533);
+            this.btnClose.Location = new System.Drawing.Point(430, 533);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
@@ -75,7 +77,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 506);
+            this.label1.Location = new System.Drawing.Point(12, 435);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 3;
@@ -84,7 +86,7 @@
             // lblTotal
             // 
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(103, 499);
+            this.lblTotal.Location = new System.Drawing.Point(103, 428);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(305, 23);
             this.lblTotal.TabIndex = 4;
@@ -99,11 +101,32 @@
             this.btnSaveAs.UseVisualStyleBackColor = true;
             this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
             // 
+            // txtNotes
+            // 
+            this.txtNotes.Location = new System.Drawing.Point(15, 464);
+            this.txtNotes.Multiline = true;
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.ReadOnly = true;
+            this.txtNotes.Size = new System.Drawing.Size(773, 53);
+            this.txtNotes.TabIndex = 6;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(592, 533);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(95, 23);
+            this.btnPrint.TabIndex = 7;
+            this.btnPrint.Text = "حفظ وطباعة";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmShowInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 568);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.btnSaveAs);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label1);
@@ -132,5 +155,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnSaveAs;
+        private System.Windows.Forms.TextBox txtNotes;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

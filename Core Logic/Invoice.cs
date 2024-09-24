@@ -233,5 +233,10 @@ namespace Core_Logic
         {
             return Invoices.GetByStudent(StudentID);
         }
+
+        public static decimal GetTotalAmountPerDay(DateTime date)
+        {
+            return Invoices.GetTotalAmountPerDay(date);
+        }
     }
 }

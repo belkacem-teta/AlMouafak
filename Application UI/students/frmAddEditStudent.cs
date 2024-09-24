@@ -117,7 +117,8 @@ namespace Application_UI.students
 
         private void txtRegNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Helper.NumericTextBox_KeyPress(sender, e);
+            // Canceled for reg numbers can now have letters
+            //Helper.NumericTextBox_KeyPress(sender, e);
         }
 
         private void txtRegNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)

@@ -143,6 +143,9 @@ namespace Core_Logic
             Payment payment = new Payment();
             payment._AutoFill(Fee.Get(MainFees.REGISTRATION));
             payment.student = std;
+
+            payment.debt = Debt.Get(std.ID, (int)PaymentTypes.REGISTRATION);
+
             return payment;
         }
         public static Payment NewFeedingPayment(Student std)

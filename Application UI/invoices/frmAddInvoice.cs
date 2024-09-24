@@ -110,6 +110,10 @@ namespace Application_UI.invoices
             {
                 MarkMonthAsPaid(chkRegistration);
                 chkRegistration.Text = "مدفوعة";
+            } 
+            else if (Debt.Get(ctrlFilteredStudentCard1.student.ID, (int)PaymentTypes.REGISTRATION) != null)
+            {
+                MarkMonthAsDebt(chkRegistration);
             }
         }
 

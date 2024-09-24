@@ -57,6 +57,16 @@ namespace Data_Access
             }
         }
 
+        public static DebtModel Get(int studentID, int paymentTypeID)
+        {
+            using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
+            {
+                string query = "SELECT * FROM Debts WHERE PaymentTypeID = @PaymentTypeID AND StudentID = @StudentID;";
+                var result = connection.QueryFirstOrDefault<DebtModel>(query, new { PaymentTypeID = paymentTypeID, StudentID = studentID });
+                return result;
+            }
+        }
+
         public static DebtModel Get(int studentID, int paymentTypeID, int debtMonth)
         {
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))

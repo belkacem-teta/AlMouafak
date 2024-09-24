@@ -67,6 +67,12 @@
     <Compile Include="controls\ctrlStudentCard.Designer.cs">
       <DependentUpon>ctrlStudentCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="expenses\frmManageExpenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="expenses\frmManageExpenses.Designer.cs">
+      <DependentUpon>frmManageExpenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="fees\frmAddEditFees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reports\frmMonthlyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reports\frmMonthlyReport.Designer.cs">
+      <DependentUpon>frmMonthlyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\frmDailyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reports\frmDailyReport.Designer.cs">
+      <DependentUpon>frmDailyReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="students\frmAddEditStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="controls\ctrlStudentCard.resx">
       <DependentUpon>ctrlStudentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="expenses\frmManageExpenses.resx">
+      <DependentUpon>frmManageExpenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fees\frmAddEditFees.resx">
       <DependentUpon>frmAddEditFees.cs</DependentUpon>
@@ -166,6 +187,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="reports\frmMonthlyReport.resx">
+      <DependentUpon>frmMonthlyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\frmDailyReport.resx">
+      <DependentUpon>frmDailyReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="students\frmAddEditStudent.resx">
       <DependentUpon>frmAddEditStudent.cs</DependentUpon>
     </EmbeddedResource>

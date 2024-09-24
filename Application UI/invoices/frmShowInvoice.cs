@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +30,7 @@ namespace Application_UI.invoices
             {
                 btnSave.Visible = false;
                 btnClose.Visible = false;
+                btnPrint.Text = "طباعة";
             }
 
             this.invoice = invoice;
@@ -41,6 +44,7 @@ namespace Application_UI.invoices
             RenameColumns();
             dgvPayments.ClearSelection();
             lblTotal.Text = invoice.TotalAmount.ToString();
+            txtNotes.Text = invoice.Notes;
         }
         private void RenameColumns()
         {
@@ -90,7 +94,26 @@ namespace Application_UI.invoices
             this.Close();
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (invoice.ID == -1)
+            {
+                if (invoice.Save() != Invoice.Status.SUCCESS)
+                {
+                    Helper.ShowError();
+                    return;
+                }
+            }
+            string filePath = Path.Combine(ConfigurationManager.AppSettings["PathToInvoicesFolder"], $"بيان المستحقات رقم {invoice.ID}.xlsx");
+            Task.Run(() => SaveAndPrint(filePath));
+            OnExit?.Invoke("SAVE");
+            this.Close();
+        }
 
-
+        private void SaveAndPrint(string filePath)
+        {
+            Report.MakeExcelInvoice(invoice, filePath);
+            Report.PrintExcelFile(filePath);
+        }
     }
 }

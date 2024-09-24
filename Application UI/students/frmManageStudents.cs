@@ -37,13 +37,12 @@ namespace Application_UI.students
 
             cbFilter.Items.AddRange(new string[]
                 {
-                    ColumnNamesMapping["ID"],
-                    ColumnNamesMapping["FirstName"],
-                    ColumnNamesMapping["LastName"],
+                    "الإسم أو اللقب",
                     ColumnNamesMapping["GradeString"],
                 }
             );
             HideFilters();
+            cbFilter.SelectedIndex = 0;
         }
 
         private void RefreshList()
@@ -75,11 +74,9 @@ namespace Application_UI.students
             switch (cbFilter.SelectedIndex)
             {
                 case 0:
-                case 1:
-                case 2:
                     txtSearch.Visible = true;
                     break;
-                case 3:
+                case 1:
                     cbSearch.Visible = true;
                     cbSearch.Items.Clear();
                     cbSearch.Items.Add("الكل");
@@ -111,17 +108,11 @@ namespace Application_UI.students
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             DataView dv = list.DefaultView;
-            var columnKey = ColumnNamesMapping.FirstOrDefault(x => x.Value == cbFilter.Text).Key;
-            if (columnKey == "ID")
-            {
-                if (int.TryParse(txtSearch.Text, out int id))
-                    dv.RowFilter = $"{columnKey} = {id}";
-                else
-                    dv.RowFilter = "";
-            }
+            string searchText = txtSearch.Text.Trim();
+            if (string.IsNullOrWhiteSpace(searchText))
+                dv.RowFilter = "";
             else
-                dv.RowFilter = $"{columnKey} LIKE '%{txtSearch.Text}%'";
-
+                dv.RowFilter = $"FirstName LIKE '%{searchText}%' OR LastName LIKE '%{searchText}%'";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

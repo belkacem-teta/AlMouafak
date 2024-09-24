@@ -10,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace Core_Logic
 {
@@ -138,12 +140,34 @@ namespace Core_Logic
             }
         }
 
-        public static void MakeFinancesReport(string filePath)
+        public static void MakeAnnualReport(string filePath)
         {
-            string title = $"التقرير المالي من شهر سبتمبر إلى شهر {Months.NAMES[DateTime.Now.Month]}";
+            string title = $"التقرير المالي السنوي";
             var dt = Reports.GetFinancesView();
             MakeReport(filePath, title, dt);
         }
+
+        public static void MakeMonthlyReport(string filePath, int month)
+        {
+            string title = $"وضعية الحقوق الشهرية للتلاميذ لشهر {Months.NAMES[month]}";
+            var dt = Reports.GetFinancesView(month);
+            MakeReport(filePath, title, dt);
+        }
+
+        public static void MakeDailyReport(string filePath, DateTime date)
+        {
+            string title = $"تقرير الإيرادات ليوم {date.ToString("yyyy-MM-dd")}";
+            var dt = Reports.GetFinancesView(date);
+            MakeReport(filePath, title, dt);
+        }
+
+        public static void MakeMonthlyExpensesReport(string filePath, int month)
+        {
+            string title = $"تقرير النفقات لشهر {Months.NAMES[month]}";
+            var dt = Reports.GetExpensesView(month);
+            MakeReport(filePath, title, dt);
+        }
+
 
         public static void MakeFedStudentsReport(string filePath)
         {
@@ -164,6 +188,61 @@ namespace Core_Logic
             string title = $"قائمة التلاميذ لشهر {Months.NAMES[DateTime.Now.Month]}";
             var dt = Reports.GetStudents();
             MakeReport(filePath, title, dt);
+        }
+
+        public static void PrintExcelFile(string filePath)
+        {
+            Excel.Application xlApp = null;
+            Excel.Workbook xlWorkbook = null;
+
+            try
+            {
+                // Initialize Excel application
+                xlApp = new Excel.Application();
+                
+                // Disable alerts (for example, if Excel file has links or prompts)
+                xlApp.DisplayAlerts = false;
+
+                // Open the workbook
+                xlWorkbook = xlApp.Workbooks.Open(filePath);
+
+                // Optionally, you can select the worksheet you want to print
+                Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+
+                // Print the worksheet
+                xlWorksheet.PrintOut(
+                    From: Type.Missing, 
+                    To: Type.Missing, 
+                    Copies: 1, 
+                    Preview: true, 
+                    ActivePrinter: Type.Missing, 
+                    PrintToFile: false, 
+                    Collate: true, 
+                    PrToFileName: Type.Missing
+                );
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                // Cleanup resources
+                if (xlWorkbook != null)
+                {
+                    xlWorkbook.Close(false); // Close the workbook without saving
+                    Marshal.ReleaseComObject(xlWorkbook);
+                }
+
+                if (xlApp != null)
+                {
+                    xlApp.Quit(); // Quit the Excel application
+                    Marshal.ReleaseComObject(xlApp);
+                }
+
+                // Forces garbage collection to release the COM objects
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
         }
 
     }
