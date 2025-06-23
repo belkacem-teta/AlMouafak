@@ -1,12 +1,5 @@
 ﻿using Core_Logic;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Application_UI.expenses
@@ -53,7 +46,7 @@ namespace Application_UI.expenses
         private void btnSave_Click(object sender, EventArgs e)
         {
             decimal.TryParse(txtAmount.Text, out decimal newAmount);
-            if (expense.ID > 0 && expense.Amount != newAmount)
+            if (expense.ID > 0 && expense.Amount > 0 && expense.Amount != newAmount)
             {
                 if (MessageBox.Show($"نفقات يوم {expense.IssueDate.ToString("yyyy-MM-dd")} مسجلة بقيمة {expense.Amount}د.ج \n هل تريد تغييرها إلى {newAmount}د.ج؟", "تحذير", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     return;

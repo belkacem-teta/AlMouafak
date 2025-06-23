@@ -1,10 +1,6 @@
 ﻿using Dapper;
 using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Access
 {
@@ -28,8 +24,8 @@ namespace Data_Access
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
                 string query = "select * from Expenses where strftime('%Y-%m-%d', IssueDate) = @IssueDate;";
-                var result = connection.QueryFirstOrDefault<ExpenseModel>(query, new 
-                { 
+                var result = connection.QueryFirstOrDefault<ExpenseModel>(query, new
+                {
                     IssueDate = issueDate.ToString("yyyy-MM-dd")
                 });
                 return result;

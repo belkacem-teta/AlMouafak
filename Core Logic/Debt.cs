@@ -1,12 +1,6 @@
 ﻿using Data_Access;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core_Logic
 {
@@ -22,7 +16,7 @@ namespace Core_Logic
             get { return _ID; }
             private set { _ID = value; }
         }
-        public int StudentID 
+        public int StudentID
         {
             get { return _StudentID; }
             private set { _StudentID = value; }
@@ -54,14 +48,6 @@ namespace Core_Logic
             this.DebtMonth = DebtMonth;
             this.Amount = Amount;
         }
-
-        //public Debt(Payment payment) : this()
-        //{
-        //    this.StudentID = payment.StudentID;
-        //    this.PaymentTypeID = payment.PaymentTypeID;
-        //    this.DebtMonth = payment.PaidMonth.Value;
-        //    this.Amount = payment.Amount;
-        //}
 
         private void _ModelToDebt(DebtModel model)
         {
@@ -126,7 +112,7 @@ namespace Core_Logic
         }
 
 
-        private static void AddDebt(Student student, int paymentTypeID, int debtMonth)
+        internal static void AddDebt(Student student, int paymentTypeID, int debtMonth)
         {
             if (Payment.Exists(student.ID, paymentTypeID, debtMonth))
                 return;
@@ -162,30 +148,41 @@ namespace Core_Logic
             debt.save();
         }
 
-        public static void AddDebt(Student student, int month)
+        public static void AddDebt(Student student)
         {
-            if (month > 6 && month < 9)
+            if ((DateTime.Now > TuitionYear.END) || (DateTime.Now < TuitionYear.START))
                 return;
 
-            if (!student.IsRegistered)
-                AddDebt(student, (int)PaymentTypes.REGISTRATION, month);
+            int currentMonth = DateTime.Now.Month;
 
-            AddDebt(student, (int)PaymentTypes.TUITION, month);
+            if (!student.IsRegistered)
+                AddDebt(student, (int)PaymentTypes.REGISTRATION, currentMonth);
+
+            int firstMonth = (student.EntryDate < TuitionYear.START) ? TuitionYear.START.Month : student.EntryDate.Month;
+
+            AddDebt(student, (int)PaymentTypes.TUITION, firstMonth);
+            int counter = firstMonth;
+            while (counter != currentMonth)
+            {
+                counter = (counter == 12) ? 1 : counter + 1;
+                AddDebt(student, (int)PaymentTypes.TUITION, counter);
+            }
             if (student.IsTransported)
-                AddDebt(student, (int)PaymentTypes.TRANSPORTATION, month);
+                AddDebt(student, (int)PaymentTypes.TRANSPORTATION, currentMonth);
             if (student.IsFed)
-                AddDebt(student, (int)PaymentTypes.FEEDING, month);
+                AddDebt(student, (int)PaymentTypes.FEEDING, currentMonth);
+
         }
 
-        public static void AddDebts(int month)
+        public static void AddDebts()
         {
-            if (month > 6 && month < 9)
+            if ((DateTime.Now > TuitionYear.END) || (DateTime.Now < TuitionYear.START))
                 return;
             DataTable students = Student.Get();
             foreach (DataRow row in students.Rows)
             {
                 var student = Student.Get(Convert.ToInt32(row["ID"]));
-                AddDebt(student, month);
+                AddDebt(student);
             }
         }
     }

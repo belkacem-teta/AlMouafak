@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Access
 {
@@ -58,7 +56,7 @@ namespace Data_Access
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
                 string query = $"UPDATE Students SET IsDeleted = 1 WHERE ID = @ID";
-                var rowsAffected = connection.Execute(query, new {ID = id});
+                var rowsAffected = connection.Execute(query, new { ID = id });
                 return rowsAffected;
             }
         }
@@ -73,8 +71,8 @@ namespace Data_Access
                 string sql = "SELECT * FROM Students where " +
                     "FirstName LIKE '%' || @FirstName || '%' " +
                     "AND LastName LIKE '%' || @LastName || '%';";
-                var student = connection.QueryFirstOrDefault<StudentModel>(sql, new 
-                { 
+                var student = connection.QueryFirstOrDefault<StudentModel>(sql, new
+                {
                     FirstName = firstName,
                     LastName = lastName
                 });

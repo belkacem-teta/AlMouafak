@@ -1,11 +1,6 @@
 ﻿using Data_Access;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core_Logic
 {
@@ -15,10 +10,10 @@ namespace Core_Logic
         private string _Title;
         public int _PaymentTypeID;
         public int? _Grade;
-        public decimal _Amount; 
+        public decimal _Amount;
 
-        public int ID 
-        { 
+        public int ID
+        {
             get { return _ID; }
             private set { _ID = value; }
         }
@@ -91,7 +86,7 @@ namespace Core_Logic
             else
                 return _Update();
         }
-        
+
         public static bool Delete(int id)
         {
             return Fees.Delete(id) == 0;

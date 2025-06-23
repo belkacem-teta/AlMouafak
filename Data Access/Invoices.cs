@@ -1,11 +1,7 @@
 ﻿using Dapper;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Access
 {
@@ -35,12 +31,16 @@ namespace Data_Access
         {
             return table.Get(id);
         }
+        public static int Delete(int id)
+        {
+            return table.Delete(id);
+        }
         public static DataTable GetByStudent(int studentID)
         {
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
                 string sql = "SELECT * FROM Invoices WHERE StudentID = @StudentID ORDER BY IssueDate DESC;";
-                var reader = connection.ExecuteReader(sql, new {StudentID = studentID});
+                var reader = connection.ExecuteReader(sql, new { StudentID = studentID });
                 DataTable dt = new DataTable();
                 dt.Load(reader);
                 return dt;
@@ -52,8 +52,8 @@ namespace Data_Access
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
                 string query = "SELECT SUM(TotalAmount) FROM Invoices where strftime('%Y', IssueDate) = @y AND strftime('%m', IssueDate) = @m AND strftime('%d', IssueDate) = @d;";
-                var result = connection.ExecuteScalar<decimal>(query, new 
-                { 
+                var result = connection.ExecuteScalar<decimal>(query, new
+                {
                     y = date.ToString("yyyy"),
                     m = date.ToString("MM"),
                     d = date.ToString("dd"),

@@ -1,10 +1,6 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Access
 {
@@ -13,7 +9,7 @@ namespace Data_Access
         public int ID { get; set; }
         public int StudentID { get; set; }
         public int PaymentTypeID { get; set; }
-        public int DebtMonth { get;  set; }
+        public int DebtMonth { get; set; }
         public decimal Amount { get; set; }
     }
     public class Debts
@@ -37,7 +33,7 @@ namespace Data_Access
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
                 string query = "DELETE FROM Debts WHERE ID = @ID";
-                var rowsAffected = connection.Execute(query, new {ID = id});
+                var rowsAffected = connection.Execute(query, new { ID = id });
                 return rowsAffected;
             }
         }

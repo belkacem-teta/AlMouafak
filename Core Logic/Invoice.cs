@@ -2,20 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core_Logic
 {
     public class Invoice
     {
-        public enum Status { 
-            SUCCESS, 
-            FAIL, 
-            FAIL_NO_PAYMENTS, 
-            FAIL_UPDATE_ATTEMPT, 
-            FAIL_TO_INSERT_PAYMENTS, 
+        public enum Status
+        {
+            SUCCESS,
+            FAIL,
+            FAIL_NO_PAYMENTS,
+            FAIL_UPDATE_ATTEMPT,
+            FAIL_TO_INSERT_PAYMENTS,
             FAIL_DUPLICATE_REGISTRATION,
             FAIL_MONTH_ALREADY_PAID,
             FAIL_INVALID_PAYMENT
@@ -60,7 +58,7 @@ namespace Core_Logic
             set
             {
                 _student = value;
-                _StudentID = value.ID; 
+                _StudentID = value.ID;
             }
         }
         public List<Payment> Payments { get; private set; }
@@ -213,6 +211,24 @@ namespace Core_Logic
             }
 
             return Status.SUCCESS;
+        }
+
+        public void Delete()
+        {
+            // Delete payments
+            foreach (Payment payment in Payments)
+            {
+                if (payment.PaymentTypeID == (int)PaymentTypes.REGISTRATION)
+                {
+                    student.IsRegistered = false;
+                    student.Save();
+                }
+                Data_Access.Payments.Delete(payment.ID);
+                if (payment.PaidMonth <= DateTime.Now.Month)
+                    Debt.AddDebt(student, payment.PaymentTypeID, payment.PaidMonth ?? DateTime.Now.Month);
+            }
+            Invoices.Delete(ID);
+            this._ID = -1;
         }
 
         public static Invoice Get(int id)

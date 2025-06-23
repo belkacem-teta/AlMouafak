@@ -1,10 +1,6 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Access
 {
@@ -37,6 +33,11 @@ namespace Data_Access
         public static PaymentModel Get(int id)
         {
             return table.Get(id);
+        }
+
+        public static int Delete(int id)
+        {
+            return table.Delete(id);
         }
 
         public static List<int> GetPaidMonths(int studentID, int paymentTypeID)

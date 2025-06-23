@@ -1,9 +1,6 @@
 ﻿using Data_Access;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core_Logic
 {
@@ -51,13 +48,13 @@ namespace Core_Logic
         }
         public int PaymentTypeID
         {
-            get { return _PaymentTypeID;  }
+            get { return _PaymentTypeID; }
             private set { _PaymentTypeID = value; }
         }
         public int? PaidMonth
         {
             get { return _PaidMonth; }
-            set 
+            set
             {
                 if (value == null)
                 {
@@ -89,7 +86,7 @@ namespace Core_Logic
         public Debt debt
         {
             get { return _debt; }
-            set 
+            set
             {
                 _debt = value;
                 if (value != null)
@@ -117,7 +114,7 @@ namespace Core_Logic
             model.ID = _ID;
             model.Title = _Title;
             model.Amount = _Amount;
-            model.InvoiceID =  _InvoiceID;
+            model.InvoiceID = _InvoiceID;
             model.PaymentTypeID = _PaymentTypeID;
             model.PaidMonth = _PaidMonth;
             model.StudentID = _StudentID;

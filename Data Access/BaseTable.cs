@@ -1,12 +1,8 @@
 ﻿using Dapper;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Access
 {
@@ -14,7 +10,7 @@ namespace Data_Access
     {
         int ID { get; set; }
     }
-    internal class BaseTable <Model> where Model : IModel
+    internal class BaseTable<Model> where Model : IModel
     {
         public string TableName { get; set; }
         public string[] attr { get; set; }
@@ -25,13 +21,13 @@ namespace Data_Access
         }
         private string _GetInsertQuery()
         {
-            StringBuilder sb = new StringBuilder( $"Insert INTO {TableName} (");
+            StringBuilder sb = new StringBuilder($"Insert INTO {TableName} (");
             for (int i = 1; i < attr.Length; i++)
             {
                 sb.Append("\"");
                 sb.Append(attr[i]);
                 sb.Append("\"");
-                if (i != attr.Length -1)
+                if (i != attr.Length - 1)
                     sb.Append(", ");
             }
             sb.Append(") VALUES (");
@@ -39,7 +35,7 @@ namespace Data_Access
             {
                 sb.Append("@");
                 sb.Append(attr[i]);
-                if (i != attr.Length -1)
+                if (i != attr.Length - 1)
                     sb.Append(", ");
             }
             sb.Append(");");
@@ -47,11 +43,11 @@ namespace Data_Access
         }
         private string _GetUpdateQuery()
         {
-            StringBuilder sb = new StringBuilder( $"UPDATE {TableName} SET ");
+            StringBuilder sb = new StringBuilder($"UPDATE {TableName} SET ");
             for (int i = 1; i < attr.Length; i++)
             {
                 sb.Append($"\"{attr[i]}\" = @{attr[i]}");
-                if (i != attr.Length -1)
+                if (i != attr.Length - 1)
                     sb.Append(", ");
             }
             sb.Append(" WHERE ID = @ID;");
@@ -86,7 +82,7 @@ namespace Data_Access
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
                 string sql = $"SELECT * FROM {TableName} where ID = @ID;";
-                return connection.QuerySingleOrDefault<Model>(sql, new { ID = id});
+                return connection.QuerySingleOrDefault<Model>(sql, new { ID = id });
             }
         }
         public DataTable Get()
@@ -98,6 +94,15 @@ namespace Data_Access
                 DataTable dt = new DataTable();
                 dt.Load(reader);
                 return dt;
+            }
+        }
+        public int Delete(int id)
+        {
+            using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
+            {
+                string query = $"DELETE FROM {TableName} WHERE ID = @ID";
+                var rowsAffected = connection.Execute(query, new { ID = id });
+                return rowsAffected;
             }
         }
     }

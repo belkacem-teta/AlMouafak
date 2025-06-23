@@ -1,12 +1,6 @@
 ﻿using Core_Logic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Application_UI.invoices
@@ -58,7 +52,15 @@ namespace Application_UI.invoices
         {
             int id = Convert.ToInt32(dgvInvoices.SelectedRows[0].Cells[0].Value);
             Invoice invoice = Invoice.Get(id);
-            new frmShowInvoice(invoice).ShowDialog();
+            frmShowInvoice frm = new frmShowInvoice(invoice);
+            frm.OnExit += OnInvoiceExit;
+            frm.ShowDialog();
+        }
+
+        private void OnInvoiceExit(string state)
+        {
+            if (state == "DELETE")
+                RefreshList();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

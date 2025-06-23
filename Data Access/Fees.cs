@@ -1,11 +1,7 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Access
 {
@@ -43,7 +39,7 @@ namespace Data_Access
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
             {
                 string query = $"DELETE FROM Fees WHERE ID = @ID AND IsDeletable = 1";
-                var rowsAffected = connection.Execute(query, new {ID = id});
+                var rowsAffected = connection.Execute(query, new { ID = id });
                 return rowsAffected;
             }
         }

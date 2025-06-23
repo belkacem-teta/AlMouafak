@@ -1,11 +1,7 @@
 ﻿using Dapper;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Access
 {
@@ -44,7 +40,7 @@ namespace Data_Access
                 return dt;
             }
         }
-        
+
         public static DataTable GetFinancesView()
         {
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
@@ -127,7 +123,7 @@ namespace Data_Access
                 return dt;
             }
         }
-        
+
         public static DataTable GetFinancesView(int month)
         {
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))
@@ -185,7 +181,7 @@ namespace Data_Access
                     LEFT JOIN 
                         (SELECT StudentID, SUM(Amount) AS TotalDebt
                          FROM Debts
-                         WHERE DebtMonth = @month
+                         WHERE DebtMonth = @month AND PaymentTypeID in (2, 3, 4)
                          GROUP BY StudentID) d ON s.ID = d.StudentID
                 ";
                 var reader = connection.ExecuteReader(sql, new
@@ -197,7 +193,7 @@ namespace Data_Access
                 return dt;
             }
         }
-        
+
         public static DataTable GetFinancesView(DateTime date)
         {
             using (var connection = new SQLiteConnection(Helper.defaultConnectionString))

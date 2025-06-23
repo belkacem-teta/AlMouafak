@@ -1,13 +1,7 @@
 ﻿using Core_Logic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,6 +25,7 @@ namespace Application_UI.invoices
                 btnSave.Visible = false;
                 btnClose.Visible = false;
                 btnPrint.Text = "طباعة";
+                btnDelete.Visible = true;
             }
 
             this.invoice = invoice;
@@ -104,7 +99,7 @@ namespace Application_UI.invoices
                     return;
                 }
             }
-            string filePath = Path.Combine(ConfigurationManager.AppSettings["PathToInvoicesFolder"], $"بيان المستحقات رقم {invoice.ID}.xlsx");
+            string filePath = Path.Combine(Application.StartupPath, $"invoices/بيان المستحقات رقم {invoice.ID}.xlsx");
             Task.Run(() => SaveAndPrint(filePath));
             OnExit?.Invoke("SAVE");
             this.Close();
@@ -112,8 +107,19 @@ namespace Application_UI.invoices
 
         private void SaveAndPrint(string filePath)
         {
-            Report.MakeExcelInvoice(invoice, filePath);
+            if (!File.Exists(filePath))
+                Report.MakeExcelInvoice(invoice, filePath);
             Report.PrintExcelFile(filePath);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (!Helper.ShowDeleteConfirmation())
+                return;
+
+            invoice.Delete();
+            OnExit?.Invoke("DELETE");
+            this.Close();
         }
     }
 }

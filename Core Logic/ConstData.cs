@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core_Logic
 {
+    public struct TuitionYear
+    {
+        public static readonly DateTime START = new DateTime(2025, 09, 01);
+        public static readonly DateTime END = new DateTime(2026, 05, 31);
+    }
     public enum PaymentTypes
     {
         REGISTRATION = 1,
@@ -30,7 +31,7 @@ namespace Core_Logic
 
     public enum TuitionMonths
     {
-        JAN =1,
+        JAN = 1,
         FEB,
         MAR,
         APR,
@@ -63,7 +64,7 @@ namespace Core_Logic
 
     public struct Grades
     {
-        public static readonly string[] NAMES = {"تحضيري", "أولى", "ثانية", "ثالثة", "رابعة", "خامسة"};
+        public static readonly string[] NAMES = { "تحضيري", "أولى", "ثانية", "ثالثة", "رابعة", "خامسة" };
     }
 
 }

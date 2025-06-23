@@ -36,6 +36,7 @@
             this.btnSaveAs = new System.Windows.Forms.Button();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,11 +121,24 @@
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDelete.Location = new System.Drawing.Point(15, 533);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "حذف";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frmShowInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 568);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.btnSaveAs);
@@ -157,5 +171,6 @@
         private System.Windows.Forms.Button btnSaveAs;
         private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

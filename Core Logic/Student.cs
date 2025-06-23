@@ -2,10 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core_Logic
 {
@@ -30,7 +26,7 @@ namespace Core_Logic
         }
         public DateTime BirthDate { get; set; }
         private byte _Grade;
-        public byte Grade 
+        public byte Grade
         {
             get { return _Grade; }
             set
@@ -117,13 +113,18 @@ namespace Core_Logic
             {
                 var result = _Insert();
                 if (!result)
-                    Debt.AddDebt(this, DateTime.Now.Month);
+                    Debt.AddDebt(this);
                 return result;
             }
             else
-                return _Update();
+            {
+                var result = _Update();
+                if (!result)
+                    Debt.AddDebt(this);
+                return result;
+            }
         }
-        
+
         public List<int> GetPaidMonths(PaymentTypes type)
         {
             return Payments.GetPaidMonths(this.ID, (int)type);
@@ -131,6 +132,19 @@ namespace Core_Logic
         public List<int> GetDebtMonths(PaymentTypes type)
         {
             return Debts.GetDebtMonths(ID, (int)type);
+        }
+        public List<int> GetNonViableMonths()
+        {
+            List<int> result = new List<int>();
+            if (EntryDate < TuitionYear.START)
+                return result;
+            int counter = TuitionYear.START.Month;
+            while (counter != EntryDate.Month)
+            {
+                result.Add(counter);
+                counter = (counter == 12) ? 1 : counter + 1;
+            }
+            return result;
         }
 
         public static Student Get(int id)

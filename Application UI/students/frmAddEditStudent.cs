@@ -32,13 +32,11 @@ namespace Application_UI.students
                 FillForm();
             }
         }
-        
+
         private void ResetForm()
         {
             cbGrade.Items.AddRange(Grades.NAMES);
-            dtBrithDate.MinDate = DateTime.Now.AddYears(-15);
             dtBrithDate.MaxDate = DateTime.Now.AddYears(-3);
-            dtEntryDate.MinDate = DateTime.Now.AddMonths(-9);
             dtEntryDate.MaxDate = DateTime.Now;
             rdIsMale.Checked = true;
             cbGrade.SelectedIndex = 0;

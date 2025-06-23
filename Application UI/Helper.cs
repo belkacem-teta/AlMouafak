@@ -1,11 +1,5 @@
-﻿using Core_Logic;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Application_UI
@@ -23,7 +17,7 @@ namespace Application_UI
         }
         public static bool ShowDeleteConfirmation()
         {
-            if (MessageBox.Show("هل تريد بالتأكيد حذف هذا السطر؟", "إنتبه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("هل تريد بالتأكيد حذف هذا؟", "إنتبه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 return true;
             return false;
         }
@@ -42,7 +36,7 @@ namespace Application_UI
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
 
@@ -68,6 +62,6 @@ namespace Application_UI
                 return "";
             }
         }
-          
+
     }
 }

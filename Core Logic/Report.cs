@@ -1,17 +1,12 @@
 ﻿using ClosedXML.Excel;
 using Data_Access;
-using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
-using System.Runtime.InteropServices;
 
 namespace Core_Logic
 {
@@ -192,56 +187,48 @@ namespace Core_Logic
 
         public static void PrintExcelFile(string filePath)
         {
-            Excel.Application xlApp = null;
-            Excel.Workbook xlWorkbook = null;
+            // Create the Excel application object
+            Excel.Application excelApp = new Excel.Application();
+
+            // Disable prompts
+            excelApp.DisplayAlerts = false;
+
+            // Make the Excel app invisible
+            excelApp.Visible = false;
+
+            // Open the Excel workbook (provide the full path to the Excel file)
+            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+
+            // Get the first worksheet (optional)
+            Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];
 
             try
             {
-                // Initialize Excel application
-                xlApp = new Excel.Application();
-                
-                // Disable alerts (for example, if Excel file has links or prompts)
-                xlApp.DisplayAlerts = false;
+                // Print the entire workbook
+                workbook.PrintOut(); // You can also specify parameters if needed
 
-                // Open the workbook
-                xlWorkbook = xlApp.Workbooks.Open(filePath);
-
-                // Optionally, you can select the worksheet you want to print
-                Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
-
-                // Print the worksheet
-                xlWorksheet.PrintOut(
-                    From: Type.Missing, 
-                    To: Type.Missing, 
-                    Copies: 1, 
-                    Preview: true, 
-                    ActivePrinter: Type.Missing, 
-                    PrintToFile: false, 
-                    Collate: true, 
-                    PrToFileName: Type.Missing
-                );
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             finally
             {
-                // Cleanup resources
-                if (xlWorkbook != null)
-                {
-                    xlWorkbook.Close(false); // Close the workbook without saving
-                    Marshal.ReleaseComObject(xlWorkbook);
-                }
+                // Close the workbook without saving
+                workbook.Close(false);
 
-                if (xlApp != null)
-                {
-                    xlApp.Quit(); // Quit the Excel application
-                    Marshal.ReleaseComObject(xlApp);
-                }
+                // Quit the Excel application
+                excelApp.Quit();
 
-                // Forces garbage collection to release the COM objects
+                // Release COM objects to avoid memory leaks
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+
+                worksheet = null;
+                workbook = null;
+                excelApp = null;
+
                 GC.Collect();
-                GC.WaitForPendingFinalizers();
             }
         }
 

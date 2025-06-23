@@ -1,12 +1,5 @@
 ﻿using Core_Logic;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Application_UI.fees
@@ -48,7 +41,8 @@ namespace Application_UI.fees
             try
             {
                 fee.Amount = Convert.ToDecimal(txtAmount.Text);
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("قيمة المبلغ المدخلة غير صحيحة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

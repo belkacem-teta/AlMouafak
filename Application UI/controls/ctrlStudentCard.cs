@@ -31,7 +31,7 @@ namespace Application_UI.controls
             lblRegNumber.Text = student.RegNumber;
             lblFirstName.Text = student.FirstName;
             lblLastName.Text = student.LastName;
-            lblGender.Text =  student.Gender;
+            lblGender.Text = student.Gender;
             lblEntryDate.Text = student.EntryDate.ToString("yyyy-MM-dd");
             lblBirthDate.Text = student.BirthDate.ToString("yyyy-MM-dd");
             lblGrade.Text = student.GradeString;

@@ -5,14 +5,8 @@ using Application_UI.reports;
 using Application_UI.students;
 using Core_Logic;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -42,8 +36,8 @@ namespace Application_UI
                     int.TryParse(content, out oldMonth);
                 }
 
-                if (oldMonth != currentMonth) 
-                    Debt.AddDebts(currentMonth);
+                if (oldMonth != currentMonth)
+                    Debt.AddDebts();
                 File.WriteAllText(filePath, currentMonth.ToString());
             }
             catch

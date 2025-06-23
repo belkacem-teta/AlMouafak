@@ -2,12 +2,6 @@
 using Core_Logic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Application_UI.invoices
@@ -48,7 +42,7 @@ namespace Application_UI.invoices
                 else
                 {
                     ctrlFilteredStudentCard1.Locked = true;
-                    if (invoice  == null)
+                    if (invoice == null)
                         invoice = new Invoice(ctrlFilteredStudentCard1.student);
                     InitPaymentsForm();
                 }
@@ -64,10 +58,15 @@ namespace Application_UI.invoices
         {
             checkBox.BackColor = CustomColors.Debt;
         }
+        private void MarkMonthAsDisabled(CheckBox checkBox)
+        {
+            checkBox.Enabled = false;
+        }
         private void MarkMonths(Control parent, PaymentTypes paymentType)
         {
             List<int> paidMonths = invoice.student.GetPaidMonths(paymentType);
             List<int> debtMonths = invoice.student.GetDebtMonths(paymentType);
+            List<int> nonViableMonths = invoice.student.GetNonViableMonths();
             foreach (Control c in parent.Controls)
             {
                 int tag = Convert.ToInt32(c.Tag);
@@ -77,24 +76,30 @@ namespace Application_UI.invoices
 
                 if (paidMonths.Contains(tag))
                     MarkMonthAsPaid((CheckBox)c);
+
+                if (nonViableMonths.Contains(tag))
+                    MarkMonthAsDisabled((CheckBox)c);
             }
         }
         private void LockMonths()
         {
+            List<int> nonViableMonths = invoice.student.GetNonViableMonths();
             foreach (Control c in grpTransportation.Controls)
             {
+                int tag = Convert.ToInt32(c.Tag);
                 CheckBox chk = (CheckBox)c;
                 if (chk.BackColor != CustomColors.Debt && !invoice.student.IsTransported)
                     chk.Enabled = false;
-                else if (chk.BackColor != CustomColors.Paid)
+                else if (chk.BackColor != CustomColors.Paid && !nonViableMonths.Contains(tag))
                     chk.Enabled = true;
             }
             foreach (Control c in grpFeeding.Controls)
             {
+                int tag = Convert.ToInt32(c.Tag);
                 CheckBox chk = (CheckBox)c;
                 if (chk.BackColor != CustomColors.Debt && !invoice.student.IsFed)
                     chk.Enabled = false;
-                else if (chk.BackColor != CustomColors.Paid)
+                else if (chk.BackColor != CustomColors.Paid && !nonViableMonths.Contains(tag))
                     chk.Enabled = true;
             }
         }
@@ -110,7 +115,7 @@ namespace Application_UI.invoices
             {
                 MarkMonthAsPaid(chkRegistration);
                 chkRegistration.Text = "مدفوعة";
-            } 
+            }
             else if (Debt.Get(ctrlFilteredStudentCard1.student.ID, (int)PaymentTypes.REGISTRATION) != null)
             {
                 MarkMonthAsDebt(chkRegistration);
@@ -181,7 +186,7 @@ namespace Application_UI.invoices
                 }
             }
 
-            foreach(var p in otherPayments)
+            foreach (var p in otherPayments)
                 invoice.AddPayment(p);
         }
 
